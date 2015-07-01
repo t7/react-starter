@@ -1,0 +1,30 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "description": "A starter project with ReactJS",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.0",
+    "handlebars": "^3.0.3"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "gulp": "^3.9.0",
+    "gulp-browserify": "^0.5.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TandemSeven/react-starter.git"
+  },
+  "author": "TandemSeven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TandemSeven/react-starter/issues"
+  },
+  "homepage": "https://github.com/TandemSeven/react-starter"
+}
