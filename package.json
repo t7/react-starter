@@ -6,6 +6,7 @@
   "scripts": {
     "precommit": "npm test",
     "prepush": "npm test",
+    "preversion": "npm test",
     "test": "standard source/**/*.js --verbose | snazzy",
     "start": "webpack-dev-server --hot --progress --colors",
     "build": "webpack --progress --colors"
