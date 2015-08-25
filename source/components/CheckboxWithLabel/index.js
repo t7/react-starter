@@ -16,12 +16,12 @@ var CheckboxWithLabel = React.createClass({
 
   render () {
     return (
-      <label>
+    <label>
         <input
-          type='checkbox'
-          checked='{this.state.isChecked}'
-          onChange='{this.onChange}'
-        />
+    type='checkbox'
+    checked={this.state.isChecked}
+    onChange={this.onChange}
+    />
         {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
       </label>
     )

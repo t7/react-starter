@@ -6,7 +6,9 @@
   "scripts": {
     "precommit": "npm test",
     "prepush": "npm test",
-    "test": "standard source/**/*.js --verbose | snazzy | jest",
+    "test": "npm run test-standard && npm run test-jest",
+    "test-standard": "standard source/**/*.js --verbose | snazzy",
+    "test-jest": "jest",
     "start": "webpack-dev-server --hot --progress --colors",
     "build": "webpack --progress --colors"
   },
