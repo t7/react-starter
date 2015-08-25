@@ -1,5 +1,4 @@
 
-
-.foo {
-  color: red;
+.foo > label {
+  display:block;
 }
