@@ -12,7 +12,7 @@ class App extends React.Component {
         <ul>
           <li><Link to='/login'>Login</Link></li>
         </ul>
-        <CheckboxWithLabel labelOn="On" labelOff="Off" />
+        <CheckboxWithLabel labelOn='On' labelOff='Off' />
         {this.props.children}
       </div>
     )

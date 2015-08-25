@@ -135,7 +135,7 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
 
 	'use strict';
 
@@ -197,6 +197,10 @@
 
 	var _componentsLogin2 = _interopRequireDefault(_componentsLogin);
 
+	var _componentsCheckboxWithLabel = __webpack_require__(191);
+
+	var _componentsCheckboxWithLabel2 = _interopRequireDefault(_componentsCheckboxWithLabel);
+
 	var App = (function (_React$Component) {
 	  _inherits(App, _React$Component);
 
@@ -209,7 +213,7 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2['default'].createElement('div', null, _react2['default'].createElement('h1', null, 'App'), _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement(_reactRouter.Link, { to: '/login' }, 'Login'))), this.props.children);
+	      return _react2['default'].createElement('div', null, _react2['default'].createElement('h1', null, 'App'), _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement(_reactRouter.Link, { to: '/login' }, 'Login'))), _react2['default'].createElement(_componentsCheckboxWithLabel2['default'], { labelOn: 'On', labelOff: 'Off' }), this.props.children);
 	    }
 	  }]);
 
@@ -220,7 +224,7 @@
 
 	_react2['default'].render(_react2['default'].createElement(_reactRouter.Router, { history: _reactRouterLibHashHistory.history }, _react2['default'].createElement(_reactRouter.Route, { path: '/', component: App }, _react2['default'].createElement(_reactRouter.Route, { path: 'login', component: _componentsLogin2['default'] }))), document.body);
 
-	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "main.js" + ": " + err.message); } }); } } })(); }
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "main.js" + ": " + err.message); } }); } } })(); }
 
 /***/ },
 /* 3 */
@@ -23580,7 +23584,7 @@
 /* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
 
 	'use strict';
 
@@ -23611,7 +23615,7 @@
 	exports['default'] = Login;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/tandemseven/GitHub/TandemSeven/react-starter/node_modules/react-hot-loader/makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } })(); }
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } })(); }
 
 /***/ },
 /* 190 */
@@ -23619,6 +23623,56 @@
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"foo":"index__foo___rbVqh"};
+
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/node_modules/react-hot-api/modules/index.js"), RootInstanceProvider = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(3);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var CheckboxWithLabel = _react2['default'].createClass({
+	  displayName: 'CheckboxWithLabel',
+
+	  propTypes: {
+	    labelOn: _react2['default'].PropTypes.string,
+	    labelOff: _react2['default'].PropTypes.string
+	  },
+
+	  getInitialState: function getInitialState() {
+	    return { isChecked: false };
+	  },
+
+	  onChange: function onChange() {
+	    this.setState({ isChecked: !this.state.isChecked });
+	  },
+
+	  render: function render() {
+	    return _react2['default'].createElement('label', null, _react2['default'].createElement('input', {
+	      type: 'checkbox',
+	      checked: this.state.isChecked,
+	      onChange: this.onChange
+	    }), this.state.isChecked ? this.props.labelOn : this.props.labelOff);
+	  }
+	});
+
+	exports['default'] = CheckboxWithLabel;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); if (false) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = require("/Users/TandemSeven/Development/react-starter/node_modules/react-hot-loader/makeExportsHot.js"), foundReactClasses = false; if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "index.js" + ": " + err.message); } }); } } })(); }
 
 /***/ }
 /******/ ]);
