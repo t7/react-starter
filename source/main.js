@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, Link } from 'react-router'
 import { history } from 'react-router/lib/HashHistory'
-import login from './components/login'
+import Login from './components/login'
 
 class App extends React.Component {
   render () {
@@ -21,7 +21,7 @@ App.propTypes = { children: React.PropTypes.element.isRequired }
 React.render((
   <Router history={history}>
     <Route path='/' component={App}>
-      <Route path='login' component={login}/>
+      <Route path='login' component={Login}/>
     </Route>
   </Router>
 ), document.body)
