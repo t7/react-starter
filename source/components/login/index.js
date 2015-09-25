@@ -1,11 +1,10 @@
-import React from 'react'
-import styles from './index.css'
+module.exports = {
+  path: 'login',
 
-let Login = React.createClass({
-
-  render () {
-    return (<div className={styles.foo}>Welcome to login</div>)
+  getComponent (location, cb) {
+    require.ensure([], (require) => {
+      cb(null, require('./components/login'))
+    })
   }
-})
+}
 
-export default Login
