@@ -42,8 +42,13 @@ export default function (form) {
       item.checked = el.checked
     }
 
+    // Is it disabled?
+    const isDisabled = el.disabled || el.hasAttribute('disabled')
+
     // Add to data.
-    data.push(item)
+    if (!isDisabled) {
+      data.push(item)
+    }
   })
 
   // Send back object.
