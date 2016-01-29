@@ -41,7 +41,7 @@ class Accordion extends React.Component {
   }
 
   // Click handler.
-  handleClick (e, index) {
+  handleClick (e, index, label) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
 
@@ -67,6 +67,15 @@ class Accordion extends React.Component {
     this.setState({
       selected: selected
     })
+
+    // Parent component's click handler.
+    const handleClick = this.props.handleClick
+
+    if (typeof handleClick !== 'function') {
+      return
+    }
+
+    handleClick(e, index, label, selected[index])
   }
 
   // Render method.
@@ -160,14 +169,22 @@ Accordion.propTypes = {
   children: React.PropTypes.node,
   id: React.PropTypes.string,
   multi: React.PropTypes.bool,
-  selected: React.PropTypes.object
+  selected: React.PropTypes.object,
+
+  // Events.
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.
 Accordion.defaultProps = {
   children: fake.accordion(),
   multi: false,
-  selected: {}
+  selected: {},
+
+  // Events.
+  handleClick: function (e, index, label, isActive) {
+    utils.log(e, index, label, isActive)
+  }
 }
 
 // Export.

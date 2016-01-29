@@ -71,7 +71,7 @@ class Tabs extends React.Component {
   }
 
   // Click handler.
-  handleClick (e, index) {
+  handleClick (e, index, label) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
 
@@ -83,6 +83,15 @@ class Tabs extends React.Component {
     this.setState({
       selected: index
     })
+
+    // Parent component's click handler.
+    const handleClick = this.props.handleClick
+
+    if (typeof handleClick !== 'function') {
+      return
+    }
+
+    handleClick(e, index, label)
   }
 
   // Render method.
@@ -104,7 +113,7 @@ class Tabs extends React.Component {
         <ul role='tablist' className='t7-tabs__list'>
           {
             children.map(function (panel, i) {
-              // Panel label.
+              // Tab label.
               const label = panel.props.label
 
               // For accessibility.
@@ -124,6 +133,7 @@ class Tabs extends React.Component {
                   index={i}
                   key={idTab}
                   label={label}
+
                   handleClick={handleClick}
                 />
               )
@@ -133,19 +143,17 @@ class Tabs extends React.Component {
         {
           children.map(function (panel, i) {
             // For accessibility.
-            const idPanel = 'tabpanel_' + i + '_' + id
+            const idPanel = 'tab_panel_' + i + '_' + id
             const idTab = 'tab_' + i + '_' + id
-
-            // Active state.
             const isActive = selected === i
 
             // Panel content.
             var content = panel.props.children
 
-            if (!content) {
+            if (typeof content === 'string') {
               content = (
                 <p>
-                  Tab {i + 1} content here.
+                  {content}
                 </p>
               )
             }
@@ -156,7 +164,7 @@ class Tabs extends React.Component {
                 aria-labelledby={idTab}
                 className='t7-tabs__panel'
                 id={idPanel}
-                key={i}
+                key={idPanel}
                 role='tabpanel'
               >
                 {content}
@@ -173,13 +181,20 @@ class Tabs extends React.Component {
 Tabs.propTypes = {
   children: React.PropTypes.node,
   id: React.PropTypes.string,
-  selected: React.PropTypes.number
+  selected: React.PropTypes.number,
+
+  // Events.
+  handleClick: React.PropTypes.func
 }
 
 // Defaults.
 Tabs.defaultProps = {
   children: fake.tabs(),
-  selected: 0
+  selected: 0,
+
+  handleClick: function (e, index, label) {
+    utils.log(e, index, label)
+  }
 }
 
 // Export.

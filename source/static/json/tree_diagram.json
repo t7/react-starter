@@ -1,0 +1,190 @@
+{
+  "name": "Name of Super House",
+  "type": "superHouse",
+  "mv": "$X00,000.00",
+  "date": "MM/DD/YY",
+  "alertType": "negative",
+  "children": [
+    {
+      "name": "Name of Household",
+      "number": "1234-5678-90",
+      "type": "household",
+      "mv": "$X00,000.00",
+      "date": "MM/DD/YY",
+      "alertType": "negative",
+      "children": [
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "alertType": "positive",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "firm",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%",
+              "alertText": "LOA - Send to signer",
+              "alertType": "positive"
+            }
+          ]
+        },
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "alertType": "negative",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "pending",
+              "updatedBy": "electronic",
+              "percent": "25%",
+              "alertText": "Statement overdue in 3 days",
+              "alertType": "negative"
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "firm",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "pending",
+              "updatedBy": "manual",
+              "percent": "25%"
+            }
+          ]
+        },
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "firm",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Name of Household",
+      "number": "1234-5678-90",
+      "type": "household",
+      "mv": "$X00,000.00",
+      "date": "MM/DD/YY",
+      "children": [
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "problem",
+              "updatedBy": "electronic",
+              "percent": "25%",
+              "inactive": true
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "firm",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
+            }
+          ]
+        },
+        {
+          "name": "Name of Tax Entity",
+          "number": "1234-5678-90",
+          "type": "taxEntity",
+          "mv": "$X00,000.00",
+          "date": "MM/DD/YY",
+          "children": [
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "self",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "electronic",
+              "percent": "25%"
+            },
+            {
+              "name": "Name of Account",
+              "number": "1234-5678-90",
+              "type": "account",
+              "managedBy": "firm",
+              "mv": "$X0,000.00",
+              "date": "MM/DD/YY",
+              "status": "okay",
+              "updatedBy": "manual",
+              "percent": "25%"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
