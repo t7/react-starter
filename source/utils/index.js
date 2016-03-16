@@ -6,6 +6,7 @@ import convertOnPaste from './_convert_on_paste'
 import convertToMarkup from './_convert_to_markup'
 import convertToText from './_convert_to_text'
 import exists from './_exists'
+import getDataByName from './_get_data_by_name'
 import log from './_log'
 import markdown from './_markdown'
 import navigate from './_navigate'
@@ -29,6 +30,7 @@ const utils = {
   convertToMarkup: convertToMarkup,
   convertToText: convertToText,
   exists: exists,
+  getDataByName: getDataByName,
   log: log,
   markdown: markdown,
   navigate: navigate,
