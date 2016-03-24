@@ -5,10 +5,7 @@
   "main": "index.js",
   "jest": {
     "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/lodash",
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-addons-test-utils",
-      "<rootDir>/node_modules/react-dom"
+      "<rootDir>"
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/jest-css-modules",
     "moduleFileExtensions": [

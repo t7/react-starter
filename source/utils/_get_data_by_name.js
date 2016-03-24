@@ -2,12 +2,12 @@
   Loops through an array, and returns
   child object with matching `*.name`.
 */
-function getDataByName(arr, name) {
+function getDataByName (data, name) {
   // Populated in loop.
   var o = []
 
   // Drill through data.
-  arr.forEach(function (item) {
+  data.forEach(function (item) {
     if (item.name === name) {
       o.push(item)
     }
