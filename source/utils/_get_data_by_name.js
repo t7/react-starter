@@ -7,7 +7,7 @@ function getDataByName (data, name) {
   var o = []
 
   // Drill through data.
-  data.forEach(function (item) {
+  data.map(function (item, i) {
     if (item.name === name) {
       o.push(item)
     }
