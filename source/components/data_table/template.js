@@ -51,20 +51,20 @@ class DataTable extends React.Component {
     }
   }
 
-  // Sort table data.
-  tableSort (index) {
+  // Initial setup.
+  tableSetup (index) {
+    var data = _.cloneDeep(this.props.data)
+
     // Ensure index exists.
-    if (!utils.exists(index)) {
-      return this.props.data
-    }
+    if (utils.exists(index)) {
+      // Loop through data.
+      data = _.sortBy(this.props.data, function (arr) {
+        return arr[index]
+      })
 
-    // Loop through data.
-    var data = _.sortBy(this.props.data, function (arr) {
-      return arr[index]
-    })
-
-    if (this.state.sortDirection === 'desc') {
-      data.reverse()
+      if (this.state.sortDirection === 'desc') {
+        data.reverse()
+      }
     }
 
     const pageCurrent = this.state.pageCurrent
@@ -123,8 +123,8 @@ class DataTable extends React.Component {
     // Pagination sizing.
     const pageTotal = Math.ceil(this.props.data.length / this.props.pageSize)
 
-    // Sort the data.
-    const data = this.tableSort(this.state.sortIndex)
+    // Table setup.
+    const data = this.tableSetup(this.state.sortIndex)
 
     // Events.
     const handleSort = this.handleSort.bind(this)
@@ -244,7 +244,6 @@ DataTable.defaultProps = {
   pageSize: 20,
   pageTop: true,
   pageBottom: false,
-  sortIndex: 0,
   sortDirection: 'desc',
 
   // Fake data.
