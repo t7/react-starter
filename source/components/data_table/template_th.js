@@ -1,16 +1,8 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-data-table.css'
-
 // Define class.
 class DataTableHeader extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   handleSort (e) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
@@ -34,7 +26,7 @@ class DataTableHeader extends React.Component {
   // Render method.
   render () {
     const index = this.props.index
-    const label = this.props.label
+    const title = this.props.title
     const sortable = this.props.sortable
     const sortDirection = this.props.sortDirection
     const sortIndex = this.props.sortIndex
@@ -50,14 +42,14 @@ class DataTableHeader extends React.Component {
       }
     }
 
-    var className = [
-      't7-data-table__th'
-    ]
+    // Default class="…".
+    var className = ['t7-data-table__th']
 
     if (sortable) {
       className.push('t7-data-table__th--sortable')
     }
 
+    // Convert to string.
     className = className.join(' ')
 
     return (
@@ -71,7 +63,7 @@ class DataTableHeader extends React.Component {
         onClick={handleSort}
         onKeyDown={handleSort}
       >
-        {label}
+        {title}
       </th>
     )
   }
@@ -80,7 +72,7 @@ class DataTableHeader extends React.Component {
 // Validation.
 DataTableHeader.propTypes = {
   // Required.
-  label: React.PropTypes.string.isRequired,
+  title: React.PropTypes.string.isRequired,
   index: React.PropTypes.number.isRequired,
 
   // Optional.

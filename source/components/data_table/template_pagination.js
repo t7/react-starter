@@ -1,20 +1,12 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-data-table.css'
-
 // UI components.
-import Button from '../form_button/template'
-import Select from '../form_select/template'
+import Button from '../form_button'
+import Select from '../form_select'
 
 // Define class.
 class DataTablePagination extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Handle `button` clicks.
   handlePagination (e, page) {
     const handlePagination = this.props.handlePagination
@@ -29,10 +21,11 @@ class DataTablePagination extends React.Component {
   }
 
   focusOtherButton (e) {
-    var timer = function () {
+    const el = e.target
+
+    const timer = setTimeout(function () {
       clearTimeout(timer)
 
-      const el = e.target
       const tag = el.tagName.toLowerCase()
       const isButton = tag === 'button'
       const isDisabled = isButton && el.disabled
@@ -44,9 +37,7 @@ class DataTablePagination extends React.Component {
         .querySelector('button:not([disabled])')
         .focus()
       }
-    }
-
-    setTimeout(timer, 16)
+    }, 16)
   }
 
   // Render method.

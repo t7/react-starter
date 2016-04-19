@@ -5,11 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const ButtonExamples = require('../source/components/form_button_examples/template')
+import ButtonExamples from '../source/components/form_button_examples'
 
 // Describe `<Component/>` name.
 describe('ButtonExamples', function () {

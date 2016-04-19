@@ -5,12 +5,12 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Tabs = require('../source/components/tabs/template')
-const TabPanel = require('../source/components/tabs/template_panel')
+import Tabs from '../source/components/tabs'
+import TabPanel from '../source/components/tabs/template_panel'
 
 // Describe `<Component/>` name.
 describe('Tabs', function () {

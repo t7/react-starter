@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-app.css'
-
 // Misc components.
 import Clear from '../components_misc/unsemantic/grid_clear'
 import Grid from '../components_misc/unsemantic/grid_unit'
@@ -11,11 +8,6 @@ import GridContainer from '../components_misc/unsemantic/grid_container'
 
 // Define class.
 class Footer extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     const year = new Date().getFullYear()

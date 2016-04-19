@@ -5,12 +5,12 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const AccordionMulti = require('../source/components/accordion_multi/template')
-const AccordionPanel = require('../source/components/accordion/template_panel')
+import AccordionMulti from '../source/components/accordion_multi'
+import AccordionPanel from '../source/components/accordion/template_panel'
 
 // Describe `<Component/>` name.
 describe('AccordionMulti', function () {

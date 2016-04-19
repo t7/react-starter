@@ -1,9 +1,6 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-app.css'
-
 // UI components.
 import Wrapper from './app_wrapper'
 import Header from './app_header'
@@ -12,11 +9,6 @@ import Footer from './app_footer'
 
 // Define class.
 class App extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     return (

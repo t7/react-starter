@@ -5,11 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const FieldsetNegative = require('../source/components/fieldset_negative/template')
+import FieldsetNegative from '../source/components/fieldset_negative'
 
 // Describe `<Component/>` name.
 describe('FieldsetNegative', function () {

@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Select =
-require('../source/components/form_select/template')
+import Select from '../source/components/form_select'
 
 // Describe `<Component/>` name.
 describe('Select', function () {
@@ -40,16 +39,16 @@ describe('Select', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Select
-    ariaControls={ariaControls}
-    disabled={disabled}
-    id={id}
-    name={name}
-    options={options}
-    required={required}
+      ariaControls={ariaControls}
+      disabled={disabled}
+      id={id}
+      name={name}
+      options={options}
+      required={required}
 
-    defaultValue={defaultValue}
+      defaultValue={defaultValue}
 
-    handleChange={handleChange}
+      handleChange={handleChange}
     />
   )
 

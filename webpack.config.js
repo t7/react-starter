@@ -1,21 +1,110 @@
-var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path')
+var webpack = require('webpack')
+
+// ======================
+// Returns *.scss loader.
+// ======================
+
+function getStyleLoader () {
+  var x = 'style!css?-url!postcss!sass'
+
+  if (process.env.BABEL_ENV === 'production') {
+    x = ExtractTextPlugin.extract('style', 'css?-url&minimize!postcss!sass')
+  }
+
+  return x
+}
+
+// ========
+// Plugins.
+// ========
+
+var plugins = [
+  // Generate "index.html" file.
+  new HtmlWebpackPlugin({
+    template: './source/index.html',
+    inject: 'body',
+    minify: {
+      collapseWhitespace: true,
+      collapseInlineTagWhitespace: true,
+      removeCDATASectionsFromCDATA: true,
+      removeComments: true,
+      removeCommentsFromCDATA: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      useShortDoctype: true
+    }
+  }),
+
+  /*
+    This adds the `window.fetch` Ajax helper.
+
+    Documentation here:
+
+    https://github.com/github/fetch
+  */
+  new webpack.ProvidePlugin({
+    'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+    'window.Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+    'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+    'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+  }),
+
+  // Bundle ".scss" in one ".css" file.
+  new ExtractTextPlugin('bundle.css', {
+    allChunks: true
+  })
+]
+
+// For production build.
+if (process.env.BABEL_ENV === 'production') {
+  // Set NODE_ENV.
+  plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  )
+
+  // Minify JS.
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true
+    })
+  )
+
+  // Copy over "static" folder.
+  plugins.push(
+    new CopyWebpackPlugin([
+      {
+        // Input: "./source/static".
+        from: './source/static',
+
+        // Output: "/build/static".
+        to: './static'
+      }
+    ])
+  )
+}
+
+// ========================
+// Export Webpack settings.
+// ========================
 
 module.exports = {
   entry: [
-    './source/index.js'
+    './source'
   ],
-
   output: {
-    filename: 'build.js',
-    path: __dirname + '/build'
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
-
-  devServer: {
-    contentBase: './build',
-    hot: true
-  },
-
+  plugins: plugins,
   module: {
     loaders: [
       // JSON.
@@ -27,8 +116,9 @@ module.exports = {
       // JavaScript.
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
+        loader: 'babel',
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'source')
       },
       // CSS.
       {
@@ -39,47 +129,16 @@ module.exports = {
           'postcss-loader'
         )
       },
-      // SVG.
+      // Sass.
       {
-        test: /\.svg$/,
-        loader: 'url-loader?limit=20000&mimetype=image/svg+xml'
-      },
-      // Images.
-      {
-        test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=20000&name=[name]_[sha512:hash:base64:7].[ext]'
+        test: /\.scss$/,
+        loader: getStyleLoader()
       }
     ]
   },
-
-  postcss: [
-    require('autoprefixer-core')
-  ],
-
-  resolve: {
-    modulesDirectories: [
-      'node_modules',
-      'components'
+  postcss: function () {
+    return [
+      autoprefixer
     ]
-  },
-
-  plugins: [
-    new ExtractTextPlugin('build.css', {
-      allChunks: true
-    }),
-
-    /*
-      This adds the `window.fetch` Ajax helper.
-
-      Documentation here:
-
-      https://github.com/github/fetch
-    */
-    new webpack.ProvidePlugin({
-      'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
-      'window.Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
-      'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
-    })
-  ]
+  }
 }

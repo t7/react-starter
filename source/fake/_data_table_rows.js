@@ -8,27 +8,20 @@ import utils from '../utils'
 //======================================
 
 [
-  [
-    1444338711008,
-    "Lorem ipsum dolor sit amet...",
-    "Expense",
-    -657.8544315416366,
-    19342.145568458363
-  ],
-  [
-    1444252311008,
-    "Ut enim ad minim veniam...",
-    "Revenue",
-    225.9504753164947,
-    19568.096043774858
-  ],
-  [
-    1444165911008,
-    "Ut enim ad minim veniam...",
-    "Revenue",
-    823.1116528622806,
-    20391.20769663714
-  ]
+  {
+    date: 1444338711008,
+    description: "Lorem ipsum dolor sit amet...",
+    category: "Expense",
+    amount: -657.8544315416366,
+    balance: 19342.145568458363
+  },
+  {
+    date: 1444252311008,
+    description: "Ut enim ad minim veniam...",
+    category: "Revenue",
+    amount: 225.9504753164947,
+    balance: 19568.096043774858
+  }
 
   // Etc.
 ]
@@ -70,13 +63,13 @@ export default function (count, balance) {
       ? 'Withdrawl'
       : 'Deposit'
 
-    return [
-      utils.today(-i),
-      description,
-      category,
-      amount,
-      balance += amount
-    ]
+    return {
+      date: utils.today(-i),
+      description: description,
+      category: category,
+      amount: amount,
+      balance: balance += amount
+    }
   }
 
   // Used in loop.

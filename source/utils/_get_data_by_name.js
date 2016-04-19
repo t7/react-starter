@@ -3,14 +3,9 @@
   child object with matching `*.name`.
 */
 function getDataByName (data, name) {
-  // Populated in loop.
-  var o = []
-
   // Drill through data.
-  data.map(function (item, i) {
-    if (item.name === name) {
-      o.push(item)
-    }
+  var o = data.filter(function (item) {
+    return item.name === name
   })
 
   // Single item?
@@ -23,7 +18,7 @@ function getDataByName (data, name) {
   }
 
   // Expose result.
-  return o
+  return o || {}
 }
 
 // Export.

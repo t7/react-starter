@@ -35,25 +35,30 @@ export default function () {
   // Columns.
   const columns = [
     {
-      label: 'Date',
+      title: 'Date',
       type: 'date',
+      field: 'date',
       sortable: true
     },
     {
-      label: 'Description',
+      title: 'Description',
+      field: 'description',
       sortable: true
     },
     {
-      label: 'Category',
+      title: 'Category',
+      field: 'category',
       sortable: true
     },
     {
-      label: 'Amount',
+      title: 'Amount',
       type: 'currency',
+      field: 'amount',
       sortable: true
     },
     {
-      label: 'Balance',
+      title: 'Balance',
+      field: 'balance',
       type: 'currency'
     }
   ]

@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const ListInline =
-require('../source/components/list_inline/template')
+import ListInline from '../source/components/list_inline'
 
 // Describe `<Component/>` name.
 describe('ListInline', function () {

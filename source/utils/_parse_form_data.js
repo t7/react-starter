@@ -3,8 +3,7 @@
   and returns a formatted object.
 */
 
-// Dependencies.
-import _ from 'lodash'
+// Utility methods.
 import utils from '../utils'
 
 function parseFormData (form) {
@@ -16,7 +15,7 @@ function parseFormData (form) {
   const data = []
 
   // Loop through.
-  _.each(list, function (el) {
+  Array.prototype.map.call(list, function (el) {
     // Check if it's disabled.
     const isDisabled = el.disabled || el.hasAttribute('disabled')
 

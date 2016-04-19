@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Textarea =
-require('../source/components/form_textarea/template')
+import Textarea from '../source/components/form_textarea'
 
 // Describe `<Component/>` name.
 describe('Textarea', function () {

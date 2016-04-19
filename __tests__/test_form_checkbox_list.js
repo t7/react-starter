@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const CheckboxList =
-require('../source/components/form_checkbox_list/template')
+import CheckboxList from '../source/components/form_checkbox_list'
 
 // Describe `<Component/>` name.
 describe('CheckboxListInline', function () {

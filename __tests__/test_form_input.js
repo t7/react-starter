@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Input =
-require('../source/components/form_input/template')
+import Input from '../source/components/form_input'
 
 // Describe `<Component/>` name.
 describe('Input', function () {

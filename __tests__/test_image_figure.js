@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const ImageFigure =
-require('../source/components/image_figure/template')
+import ImageFigure from '../source/components/image_figure'
 
 // Describe `<Component/>` name.
 describe('ImageFigure', function () {
@@ -27,15 +26,15 @@ describe('ImageFigure', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <ImageFigure
-    alt={alt}
-    border={border}
-    caption={caption}
-    captionTop={captionTop}
-    href={href}
-    src={src}
-    target={target}
-    width={width}
-    height={height}
+      alt={alt}
+      border={border}
+      caption={caption}
+      captionTop={captionTop}
+      href={href}
+      src={src}
+      target={target}
+      width={width}
+      height={height}
     />
   )
 

@@ -3,11 +3,6 @@ import React from 'react'
 
 // Define class.
 class AccordionHeader extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Click handler.
   handleClick (e) {
     const keyPress = e.keyCode

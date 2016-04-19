@@ -5,11 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Box = require('../source/components/box/template')
+import Box from '../source/components/box'
 
 // Describe `<Component/>` name.
 describe('Box', function () {

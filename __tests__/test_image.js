@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Image =
-require('../source/components/image/template')
+import Image from '../source/components/image'
 
 // Describe `<Component/>` name.
 describe('Image', function () {
@@ -23,11 +22,11 @@ describe('Image', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Image
-    alt={alt}
-    border={border}
-    src={src}
-    width={width}
-    height={height}
+      alt={alt}
+      border={border}
+      src={src}
+      width={width}
+      height={height}
     />
   )
 

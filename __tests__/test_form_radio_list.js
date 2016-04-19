@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const RadioList =
-require('../source/components/form_radio_list/template')
+import RadioList from '../source/components/form_radio_list'
 
 // Describe `<Component/>` name.
 describe('RadioList', function () {

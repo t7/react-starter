@@ -5,11 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const FieldsetWarn = require('../source/components/fieldset_warn/template')
+import FieldsetWarn from '../source/components/fieldset_warn'
 
 // Describe `<Component/>` name.
 describe('FieldsetWarn', function () {

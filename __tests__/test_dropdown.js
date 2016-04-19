@@ -5,29 +5,29 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Dropdown = require('../source/components/dropdown/template')
+import Dropdown from '../source/components/dropdown'
 
 // Describe `<Component/>` name.
 describe('Dropdown', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Dropdown
-    menuAlign='right'
-    text='dropdown_trigger_text'
-    items={[
-      {
-        'href': 'http://example.com/',
-        'text': 'dropdown_item_1'
-      },
-      {
-        'href': 'http://example.net/',
-        'text': 'dropdown_item_2'
-      }
-    ]}
+      menuAlign='right'
+      text='dropdown_trigger_text'
+      items={[
+        {
+          'href': 'http://example.com/',
+          'text': 'dropdown_item_1'
+        },
+        {
+          'href': 'http://example.net/',
+          'text': 'dropdown_item_2'
+        }
+      ]}
     />
   )
 

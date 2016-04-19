@@ -5,14 +5,14 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const DataTable = require('../source/components/data_table/template')
+import DataTable from '../source/components/data_table'
 
 // Fake data.
-const fake = require('../source/fake')
+import fake from '../source/fake'
 const columns = fake.dataTableCols()
 const data = fake.dataTableRows(35)
 
@@ -21,13 +21,13 @@ describe('DataTable', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <DataTable
-    columns={columns}
-    data={data}
+      columns={columns}
+      data={data}
 
-    pageTop
-    pageBottom
-    pageSize={20}
-    sortIndex={0}
+      pageTop
+      pageBottom
+      pageSize={20}
+      sortIndex={0}
     />
   )
 

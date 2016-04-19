@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const ListClean =
-require('../source/components/list_clean/template')
+import ListClean from '../source/components/list_clean'
 
 // Describe `<Component/>` name.
 describe('ListClean', function () {

@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Checkbox =
-require('../source/components/form_checkbox/template')
+import Checkbox from '../source/components/form_checkbox'
 
 // Describe `<Component/>` name.
 describe('Checkbox', function () {
@@ -21,26 +20,22 @@ describe('Checkbox', function () {
   const required = true
   const value = 'example_value'
 
-  // Checked state.
-  const defaultChecked = true
-
   // Called from `it responds to clicks`.
   function handleChange (e, value, checked) {
-    expect(checked).toBe(false)
+    expect(checked).toBe(true)
   }
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Checkbox
-    defaultChecked={defaultChecked}
-    disabled={disabled}
-    id={id}
-    label={label}
-    name={name}
-    required={required}
-    value={value}
+      disabled={disabled}
+      id={id}
+      label={label}
+      name={name}
+      required={required}
+      value={value}
 
-    handleChange={handleChange}
+      handleChange={handleChange}
     />
   )
 
@@ -71,8 +66,8 @@ describe('Checkbox', function () {
   // Test for checkbox.
   // ==================
 
-  it('is checked', function () {
-    expect(checkbox.checked).toBe(true)
+  it('is not checked', function () {
+    expect(checkbox.checked).toBe(false)
   })
 
   it('is disabled', function () {
@@ -96,10 +91,10 @@ describe('Checkbox', function () {
   })
 
   it('responds to clicks', function () {
-    // Fake click to un-check.
+    // Fake click to check.
     T.Simulate.change(checkbox, {
       target: {
-        checked: false
+        checked: true
       }
     })
   })

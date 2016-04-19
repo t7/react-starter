@@ -6,11 +6,6 @@ import utils from '../../utils'
 
 // Define class.
 class Code extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     return (

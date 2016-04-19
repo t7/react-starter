@@ -1,0 +1,30 @@
+// Dependencies.
+import React from 'react'
+
+// Utility methods.
+import fake from '../../fake'
+
+// Define class.
+class ListClean extends React.Component {
+  // Render method.
+  render () {
+    return (
+      <ul className='t7-list-clean'>
+        {this.props.children}
+      </ul>
+    )
+  }
+}
+
+// Validation.
+ListClean.propTypes = {
+  children: React.PropTypes.node
+}
+
+// Defaults.
+ListClean.defaultProps = {
+  children: fake.list()
+}
+
+// Export.
+export default ListClean

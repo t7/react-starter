@@ -1,16 +1,8 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './grid.css'
-
 // Define class.
 class Clear extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     const desktop_hide = this.props['desktop-hide']

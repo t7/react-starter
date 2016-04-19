@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Radio =
-require('../source/components/form_radio/template')
+import Radio from '../source/components/form_radio'
 
 // Describe `<Component/>` name.
 describe('Radio', function () {
@@ -21,26 +20,22 @@ describe('Radio', function () {
   const required = true
   const value = 'example_value'
 
-  // Checked state.
-  const defaultChecked = true
-
   // Called from `it responds to clicks`.
   function handleChange (e, value, checked) {
-    expect(checked).toBe(false)
+    expect(checked).toBe(true)
   }
 
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Radio
-    defaultChecked={defaultChecked}
-    disabled={disabled}
-    id={id}
-    label={label}
-    name={name}
-    required={required}
-    value={value}
+      disabled={disabled}
+      id={id}
+      label={label}
+      name={name}
+      required={required}
+      value={value}
 
-    handleChange={handleChange}
+      handleChange={handleChange}
     />
   )
 
@@ -71,8 +66,8 @@ describe('Radio', function () {
   // Test for radio.
   // ===============
 
-  it('is checked', function () {
-    expect(radio.checked).toBe(true)
+  it('is not checked', function () {
+    expect(radio.checked).toBe(false)
   })
 
   it('is disabled', function () {
@@ -96,10 +91,10 @@ describe('Radio', function () {
   })
 
   it('responds to clicks', function () {
-    // Fake click to un-check.
+    // Fake click to check.
     T.Simulate.change(radio, {
       target: {
-        checked: false
+        checked: true
       }
     })
   })

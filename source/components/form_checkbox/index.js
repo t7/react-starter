@@ -1,0 +1,127 @@
+// Dependencies.
+import React from 'react'
+
+// Utility methods.
+import utils from '../../utils'
+
+// Define class.
+class Checkbox extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Get default state.
+    this.defaultState()
+  }
+
+  // Set default state.
+  defaultState () {
+    var checked = this.props.checked
+
+    // Ensure a real boolean.
+    if (!utils.exists(checked)) {
+      checked = this.props.defaultChecked || false
+    }
+
+    this.state = {
+      checked: checked,
+      id: this.props.id || utils.unique()
+    }
+  }
+
+  // Force state change.
+  componentWillReceiveProps (nextProps) {
+    const checked = nextProps.checked
+
+    if (utils.exists(checked)) {
+      this.setState({
+        checked: checked
+      })
+    }
+  }
+
+  // Checkbox click.
+  handleChange (e) {
+    const el = e.target
+    const checked = el.checked
+    const value = utils.trim(el.value)
+    const handleChange = this.props.handleChange
+
+    this.setState({
+      checked: checked
+    })
+
+    // Does callback exist?
+    if (typeof handleChange === 'function') {
+      handleChange(e, value, checked)
+    }
+  }
+
+  // Render method.
+  render () {
+    // State driven.
+    const checked = this.state.checked
+    const id = this.state.id
+
+    // Props driven.
+    const autofocus = this.props.autofocus
+    const disabled = this.props.disabled
+    const label = this.props.label
+    const name = this.props.name || id
+    const required = this.props.required
+    const value = this.props.value || label
+
+    // Events.
+    const handleChange = this.handleChange.bind(this)
+
+    return (
+      <label htmlFor={id}>
+        <input
+          autoFocus={autofocus}
+          className='t7-form__checkbox'
+          disabled={disabled}
+          id={id}
+          name={name}
+          required={required}
+          type='checkbox'
+          value={value}
+
+          checked={checked}
+          onChange={handleChange}
+        />
+        {label}
+      </label>
+    )
+  }
+}
+
+// Validation.
+Checkbox.propTypes = {
+  autofocus: React.PropTypes.bool,
+  disabled: React.PropTypes.bool,
+  id: React.PropTypes.string,
+  label: React.PropTypes.string,
+  name: React.PropTypes.string,
+  required: React.PropTypes.bool,
+
+  // Alphanumeric.
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
+
+  // Control checked state.
+  defaultChecked: React.PropTypes.bool,
+  checked: React.PropTypes.bool,
+
+  // Events.
+  handleChange: React.PropTypes.func
+}
+
+// Prop defaults.
+Checkbox.defaultProps = {
+  label: 'Individual checkbox label'
+}
+
+// Export.
+export default Checkbox

@@ -3,28 +3,24 @@ import React from 'react'
 import accounting from 'accounting'
 import moment from 'moment'
 
-// CSS.
-import './t7-data-table.css'
-
-// Utility methods.
-import utils from '../../utils'
-
-// Money formatting.
-accounting.settings.currency.format = {
-  pos: '%s%v',
-  neg: '(%s%v)'
-}
-
 // Define class.
 class DataTableCell extends React.Component {
   constructor (props) {
     // Pass `props` into scope.
     super(props)
+
+    // Money formatting.
+    accounting.settings.currency.format = {
+      pos: this.props.numberFormat,
+      neg: this.props.numberFormatNegative
+    }
   }
 
   // Render method.
   render () {
+    const dateFormat = this.props.dateFormat
     const index = this.props.index
+    const nowrap = this.props.nowrap
     const type = this.props.type
 
     const isCurrency = type === 'currency'
@@ -33,10 +29,13 @@ class DataTableCell extends React.Component {
     var value = this.props.value
     const isNegative = value < 0
 
-    // Used in conditional.
-    var className = [
-      't7-data-table__td'
-    ]
+    // Default class="…".
+    var className = ['t7-data-table__td']
+
+    // Nowrap?
+    if (nowrap) {
+      className.push('t7-data-table__td--nowrap')
+    }
 
     // Currency value?
     if (isCurrency) {
@@ -50,16 +49,20 @@ class DataTableCell extends React.Component {
       value = accounting.formatMoney(value)
 
     // Date value?
-    } else if (isDate) {
-      value = moment(value).format('MMM D, YYYY')
+    } else if (isDate && moment(value).isValid()) {
+      value = moment(value).format(dateFormat)
     }
 
-    // Convert `className` to string.
+    // Convert to string.
     className = className.join(' ')
 
     // Expose `<td>`.
     return (
-      <td key={index} className={className} role='gridcell'>
+      <td
+        key={index}
+        className={className}
+        role='gridcell'
+      >
         {value}
       </td>
     )
@@ -68,9 +71,25 @@ class DataTableCell extends React.Component {
 
 // Validation.
 DataTableCell.propTypes = {
+  dateFormat: React.PropTypes.string,
+  numberFormat: React.PropTypes.string,
+  numberFormatNegative: React.PropTypes.string,
+
   index: React.PropTypes.number,
+  nowrap: React.PropTypes.bool,
   type: React.PropTypes.string,
-  value: utils.alphanumeric
+
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ])
+}
+
+// Defaults.
+DataTableCell.defaultProps = {
+  dateFormat: 'MMM D, YYYY',
+  numberFormat: '%s%v',
+  numberFormatNegative: '(%s%v)'
 }
 
 // Export.

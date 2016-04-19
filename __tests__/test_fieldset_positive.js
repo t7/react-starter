@@ -5,11 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const FieldsetPositive = require('../source/components/fieldset_positive/template')
+import FieldsetPositive from '../source/components/fieldset_positive'
 
 // Describe `<Component/>` name.
 describe('FieldsetPositive', function () {

@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const ListSeparator =
-require('../source/components/list_separator/template')
+import ListSeparator from '../source/components/list_separator'
 
 // Describe `<Component/>` name.
 describe('ListSeparator', function () {

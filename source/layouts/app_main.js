@@ -1,16 +1,8 @@
 // Dependencies.
 import React from 'react'
 
-// CSS.
-import './t7-app.css'
-
 // Define class.
 class Main extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     return (

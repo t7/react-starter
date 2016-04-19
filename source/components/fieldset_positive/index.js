@@ -1,0 +1,33 @@
+// Dependencies.
+import React from 'react'
+
+// UI components.
+import Box from '../box'
+
+// Define class.
+class FieldsetPositive extends React.Component {
+  // Render method.
+  render () {
+    const legend = this.props.legend
+
+    return (
+      <Box {...this.props} legend={legend} mode='positive' />
+    )
+  }
+}
+
+// Validation.
+FieldsetPositive.propTypes = {
+  legend: React.PropTypes.string
+}
+
+// Defaults.
+FieldsetPositive.defaultProps = {
+  legend: 'Fieldset Legend',
+  children: '(Form elements would go here.)',
+  close: false,
+  icon: false
+}
+
+// Export.
+export default FieldsetPositive

@@ -2,8 +2,7 @@
 import ReactDOM from 'react-dom'
 
 // CSS.
-import './css/reset.css'
-import './css/global.css'
+import './scss/index.scss'
 
 // Routes.
 import routes from './routes'

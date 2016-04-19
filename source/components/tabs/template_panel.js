@@ -3,10 +3,6 @@ import React from 'react'
 
 // Define class.
 class TabPanel extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
 }
 
 // Validation.

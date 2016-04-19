@@ -2,24 +2,16 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-// CSS.
-import './t7-app.css'
-
 // Misc components.
 import Grid from '../components_misc/unsemantic/grid_unit'
 import GridContainer from '../components_misc/unsemantic/grid_container'
-import ListSeparator from '../components/list_separator/template'
+import ListSeparator from '../components/list_separator'
 
 // UI components.
-import Search from '../components/form_search/template'
+import Search from '../components/form_search'
 
 // Define class.
 class Header extends React.Component {
-  constructor (props) {
-    // Pass `props` into scope.
-    super(props)
-  }
-
   // Render method.
   render () {
     return (

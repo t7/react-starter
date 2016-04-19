@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Textdiv =
-require('../source/components/form_textdiv/template')
+import Textdiv from '../source/components/form_textdiv'
 
 // Describe `<Component/>` name.
 describe('Textdiv', function () {

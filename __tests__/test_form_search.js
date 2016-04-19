@@ -5,12 +5,11 @@ it
 */
 
 // Dependencies.
-const React = require('react')
-const T = require('react-addons-test-utils')
+import React from 'react'
+import T from 'react-addons-test-utils'
 
 // UI components.
-const Search =
-require('../source/components/form_search/template')
+import Search from '../source/components/form_search'
 
 // Describe `<Component/>` name.
 describe('Search', function () {
@@ -26,11 +25,11 @@ describe('Search', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Search
-    buttonText={buttonText}
-    defaultValue={defaultValue}
-    placeholder={placeholder}
+      buttonText={buttonText}
+      defaultValue={defaultValue}
+      placeholder={placeholder}
 
-    handleSubmit={handleSubmit}
+      handleSubmit={handleSubmit}
     />
   )
 
