@@ -1,4 +1,4 @@
-# TandemSeven React Starter
+# T7 React Starter
 
 This is where we tinker with our approach to React projects.
 
