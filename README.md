@@ -1,6 +1,6 @@
-# React Starter
+# TandemSeven React Starter
 
-This is where we will prove out our approach to React projects.
+This is where we tinker with our approach to React projects.
 
 Note: Depending on how Node is set up on your machine, you may need to prefix the following commands with `sudo`.
 
