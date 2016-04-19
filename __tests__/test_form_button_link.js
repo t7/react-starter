@@ -2,7 +2,10 @@
 describe
 expect
 it
+jest
 */
+
+jest.disableAutomock()
 
 // Dependencies.
 import React from 'react'
@@ -21,10 +24,10 @@ describe('Button', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Button
-    href={href}
-    target={target}
-    text={text}
-    title={title}
+      href={href}
+      target={target}
+      text={text}
+      title={title}
     />
   )
 

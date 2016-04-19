@@ -2,7 +2,10 @@
 describe
 expect
 it
+jest
 */
+
+jest.disableAutomock()
 
 // Dependencies.
 import React from 'react'

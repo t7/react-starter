@@ -38,7 +38,7 @@
     "test": "jest --coverage",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "standard 'source/**/*.js' -verbose | snazzy",
-    "lint:css": "sass-lint source/scss/**/*.scss -q -v -f html -o sass-lint.report.html",
+    "lint:css": "sass-lint source/scss/**/*.scss -q -v -f html -o sass-lint.html",
     "prepush": "npm test",
     "postmerge": "npm install"
   },

@@ -2,7 +2,10 @@
 describe
 expect
 it
+jest
 */
+
+jest.disableAutomock()
 
 // Dependencies.
 import React from 'react'
@@ -30,15 +33,15 @@ describe('Textdiv', function () {
   // Insert the component into DOM.
   const el = T.renderIntoDocument(
     <Textdiv
-    disabled={disabled}
-    id={id}
-    name={name}
-    placeholder={placeholder}
-    required={required}
+      disabled={disabled}
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      required={required}
 
-    defaultValue={defaultValue}
+      defaultValue={defaultValue}
 
-    handleChange={handleChange}
+      handleChange={handleChange}
     />
   )
 

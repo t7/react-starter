@@ -2,7 +2,10 @@
 describe
 expect
 it
+jest
 */
+
+jest.disableAutomock()
 
 // Dependencies.
 import React from 'react'
@@ -32,13 +35,11 @@ describe('ButtonExamples', function () {
   parent.querySelectorAll('.t7-form__button--big')
 
   const sizeNormal =
-  parent.querySelectorAll(
-    [
-      '.t7-form__button',
-      ':not(.t7-form__button--small)',
-      ':not(.t7-form__button--big)'
-    ].join('')
-  )
+  parent.querySelectorAll([
+    '.t7-form__button',
+    ':not(.t7-form__button--small)',
+    ':not(.t7-form__button--big)'
+  ].join(''))
 
   // ====================
   // Get buttons by mode.

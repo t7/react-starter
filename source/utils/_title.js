@@ -1,7 +1,11 @@
 // Set the page `<title>`.
 function title (props) {
   // Fallback site title.
-  const suffix = 'ACME Corp.'
+  const suffix =
+    document
+    .querySelector('title')
+    .getAttribute('data-suffix') ||
+    ''
 
   // Used in conditional.
   var title = props.route.title
