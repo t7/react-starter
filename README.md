@@ -13,6 +13,10 @@ To get this project running…
 3. Type `npm install`.
 4. Type `npm start`.
 
+It should then be viewable at…
+
+http://localhost:8080/
+
 ---
 
 To run unit tests on the React components…
