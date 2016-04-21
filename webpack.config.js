@@ -116,9 +116,8 @@ module.exports = {
       // JavaScript.
       {
         test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        include: path.join(__dirname, 'source')
+        loaders: ['react-hot', 'babel'],
+        exclude: /node_modules/
       },
       // CSS.
       {
