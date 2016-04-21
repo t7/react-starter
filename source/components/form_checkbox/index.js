@@ -16,51 +16,29 @@ class Checkbox extends React.Component {
 
   // Set default state.
   defaultState () {
-    var checked = this.props.checked
-
-    // Ensure a real boolean.
-    if (!utils.exists(checked)) {
-      checked = this.props.defaultChecked || false
-    }
-
     this.state = {
-      checked: checked,
       id: this.props.id || utils.unique()
     }
   }
 
-  // Force state change.
-  componentWillReceiveProps (nextProps) {
-    const checked = nextProps.checked
-
-    if (utils.exists(checked)) {
-      this.setState({
-        checked: checked
-      })
-    }
-  }
-
-  // Checkbox click.
   handleChange (e) {
+    const handleChange = this.props.handleChange
+
+    // Exit, if no callback.
+    if (typeof handleChange !== 'function') {
+      return
+    }
+
     const el = e.target
     const checked = el.checked
     const value = utils.trim(el.value)
-    const handleChange = this.props.handleChange
 
-    this.setState({
-      checked: checked
-    })
-
-    // Does callback exist?
-    if (typeof handleChange === 'function') {
-      handleChange(e, value, checked)
-    }
+    handleChange(e, value, checked)
   }
 
   // Render method.
   render () {
     // State driven.
-    const checked = this.state.checked
     const id = this.state.id
 
     // Props driven.
@@ -70,6 +48,10 @@ class Checkbox extends React.Component {
     const name = this.props.name || id
     const required = this.props.required
     const value = this.props.value || label
+
+    // Control checked state.
+    const defaultChecked = this.props.defaultChecked
+    const checked = this.props.checked
 
     // Events.
     const handleChange = this.handleChange.bind(this)
@@ -87,6 +69,8 @@ class Checkbox extends React.Component {
           value={value}
 
           checked={checked}
+          defaultChecked={defaultChecked}
+
           onChange={handleChange}
         />
         {label}

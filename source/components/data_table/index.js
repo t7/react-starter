@@ -95,11 +95,9 @@ class DataTable extends React.Component {
     // Report to parent component?
     const handleSort = this.props.handleSort
 
-    if (typeof handleSort !== 'function') {
-      return
+    if (typeof handleSort === 'function') {
+      handleSort(e, sortIndex, sortDirection)
     }
-
-    handleSort(e, sortIndex, sortDirection)
   }
 
   // Handle table pagination.
@@ -111,11 +109,9 @@ class DataTable extends React.Component {
     // Report to parent component?
     const handlePagination = this.props.handlePagination
 
-    if (typeof handlePagination !== 'function') {
-      return
+    if (typeof handlePagination === 'function') {
+      handlePagination(e, pageCurrent)
     }
-
-    handlePagination(e, pageCurrent)
   }
 
   // Row click.
@@ -131,11 +127,9 @@ class DataTable extends React.Component {
     // Report to parent component?
     const handleRowClick = this.props.handleRowClick
 
-    if (typeof handleRowClick !== 'function') {
-      return
+    if (typeof handleRowClick === 'function') {
+      handleRowClick(e, data, index)
     }
-
-    handleRowClick(e, data, index)
   }
 
   // Render method.

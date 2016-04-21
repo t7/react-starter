@@ -46,6 +46,7 @@ class Input extends React.Component {
     const maxlength = this.props.maxlength
     const name = this.props.name || id
     const placeholder = this.props.placeholder
+    const readonly = this.props.readonly
     const required = this.props.required
     const size = this.props.size
     const type = this.props.type
@@ -75,6 +76,7 @@ class Input extends React.Component {
         maxLength={maxlength}
         name={name}
         placeholder={placeholder}
+        readOnly={readonly}
         required={required}
         size={size}
         type={type}
@@ -96,6 +98,7 @@ Input.propTypes = {
   maxlength: React.PropTypes.string,
   name: React.PropTypes.string,
   placeholder: React.PropTypes.string,
+  readonly: React.PropTypes.bool,
   required: React.PropTypes.bool,
   size: React.PropTypes.string,
   type: React.PropTypes.string,
