@@ -67,6 +67,8 @@ Dropdown: Menu.
   left: auto;
   right: auto;
   bottom: auto;
+
+  z-index: 1;
 }
 
 *[data-menu-align="left"] > .t7-dropdown__menu {

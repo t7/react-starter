@@ -37,14 +37,11 @@ class Page extends React.Component {
 
   // Render method.
   render () {
-    // Pagination.
-    const pageTop = false
-    const pageBottom = true
-
     // Right top area.
     const rightClassName = [
       't7-tablet-float-right',
-      't7-desktop-float-right'
+      't7-desktop-float-right',
+      't7-gutter-bottom'
     ].join(' ')
 
     // Heading area.
@@ -96,7 +93,6 @@ class Page extends React.Component {
                 <div className={rightClassName}>
                   <Dropdown
                     text='Options'
-                    menuAlign='right'
                     items={[
                       {
                         text: 'Schedule Payment'
@@ -121,8 +117,6 @@ class Page extends React.Component {
                   data={fake.dataTableRows(70, 3500)}
                   columns={fake.dataTableCols()}
                   pageSize={15}
-                  pageTop={pageTop}
-                  pageBottom={pageBottom}
                 />
 
               </TabPanel>
@@ -136,7 +130,6 @@ class Page extends React.Component {
                 <div className={rightClassName}>
                   <Dropdown
                     text='Options'
-                    menuAlign='right'
                     items={[
                       {
                         text: 'Investment Advice'
@@ -158,8 +151,6 @@ class Page extends React.Component {
                   data={fake.dataTableRows(70, 9000)}
                   columns={fake.dataTableCols()}
                   pageSize={15}
-                  pageTop={pageTop}
-                  pageBottom={pageBottom}
                 />
 
               </TabPanel>
