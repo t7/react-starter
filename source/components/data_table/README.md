@@ -9,44 +9,49 @@ This component can be used like so.
 
 const columns = [
   {
-    "label": "Date",
-    "type": "date",
-    "sortable": true
+    title: 'Date',
+    type: 'date',
+    field: 'date',
+    sortable: true
   },
   {
-    "label": "Description",
-    "sortable": true
+    title: 'Description',
+    field: 'description',
+    sortable: true
   },
   {
-    "label": "Category",
-    "sortable": true
+    title: 'Category',
+    field: 'category',
+    sortable: true
   },
   {
-    "label": "Amount",
-    "type": "currency",
-    "sortable": true
+    title: 'Amount',
+    type: 'currency',
+    field: 'amount',
+    sortable: true
   },
   {
-    "label": "Balance",
-    "type": "currency"
+    title: 'Balance',
+    field: 'balance',
+    type: 'currency'
   }
 ]
 
 const data = [
-  [
-    1444338711008,
-    "Lorem ipsum dolor sit amet...",
-    "Expense",
-    -657.8544315416366,
-    19342.145568458363
-  ],
-  [
-    1444252311008,
-    "Ut enim ad minim veniam...",
-    "Revenue",
-    225.9504753164947,
-    19568.096043774858
-  ]
+  {
+    date: 1444338711008,
+    description: "Lorem ipsum dolor sit amet...",
+    category: "Expense",
+    amount: -657.8544315416366,
+    balance: 19342.145568458363
+  },
+  {
+    date: 1444252311008,
+    description: "Ut enim ad minim veniam...",
+    category: "Revenue",
+    amount: 225.9504753164947,
+    balance: 19568.096043774858
+  }
 ]
 ```
 
