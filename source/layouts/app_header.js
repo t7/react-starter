@@ -31,7 +31,7 @@ class Header extends React.Component {
                 <Link to='/profile'>Profile</Link>
               </li>
               <li>
-                <a href='./isg/intro/'>ISG</a>
+                <a href='https://github.com/t7/react-starter'>GitHub</a>
               </li>
             </ListSeparator>
           </Grid>
