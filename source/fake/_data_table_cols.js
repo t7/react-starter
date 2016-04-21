@@ -6,26 +6,31 @@
 
 [
   {
-    "label": "Date",
-    "type": "date",
-    "sortable": true
+    title: 'Date',
+    type: 'date',
+    field: 'date',
+    sortable: true
   },
   {
-    "label": "Description",
-    "sortable": true
+    title: 'Description',
+    field: 'description',
+    sortable: true
   },
   {
-    "label": "Category",
-    "sortable": true
+    title: 'Category',
+    field: 'category',
+    sortable: true
   },
   {
-    "label": "Amount",
-    "type": "currency",
-    "sortable": true
+    title: 'Amount',
+    type: 'currency',
+    field: 'amount',
+    sortable: true
   },
   {
-    "label": "Balance",
-    "type": "currency"
+    title: 'Balance',
+    field: 'balance',
+    type: 'currency'
   }
 ]
 
