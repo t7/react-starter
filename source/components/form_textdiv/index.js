@@ -28,18 +28,22 @@ class Textdiv extends React.Component {
 
   handleBlur (e) {
     utils.convertContentEditable(e)
+    this.handleChange(e)
   }
 
   handleFocus (e) {
     utils.convertContentFocus(e)
+    this.handleChange(e)
   }
 
   handleKeyUp (e) {
     utils.convertContentEditable(e)
+    this.handleChange(e)
   }
 
   handlePaste (e) {
     utils.convertOnPaste(e)
+    this.handleChange(e)
   }
 
   handleChange (e) {

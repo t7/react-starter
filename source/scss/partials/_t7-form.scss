@@ -34,8 +34,14 @@ Form element "reset."
   vertical-align: middle;
 }
 
-.t7-form__input::ms-clear,
-.t7-form__input::ms-reveal,
+.t7-form__input::ms-clear {
+  display: none;
+}
+
+.t7-form__input::ms-reveal {
+  display: none;
+}
+
 .t7-form__select::-ms-expand {
   display: none;
 }
@@ -74,13 +80,18 @@ Form element "reset."
 
 .t7-form__input::-webkit-input-placeholder,
 .t7-form__textarea::-webkit-input-placeholder {
-  color: inherit;
+  color: #ccc;
 }
 
 .t7-form__input::-moz-placeholder,
 .t7-form__textarea::-moz-placeholder {
-  color: inherit;
+  color: #ccc;
   opacity: 1;
+}
+
+.gs-form__input:-ms-input-placeholder,
+.gs-form__textarea:-ms-input-placeholder {
+  color: #ccc;
 }
 
 .t7-form__input,
@@ -173,18 +184,14 @@ Select drop-down.
 ============================================================
 */
 
-/* For WebKit. */
-@media (-webkit-min-device-pixel-ratio: 0) {
-  .t7-form__select,
-  .t7-form__select[size="0"],
-  .t7-form__select[size="1"] {
-    background-image: url("./static/images/t7-form__select.svg");
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 130%;
-
-    padding-right: 30px;
-  }
+.t7-form__select,
+.t7-form__select[size="0"],
+.t7-form__select[size="1"] {
+  background-image: url("./static/images/t7-form__select.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 130%;
+  padding-right: 30px;
 }
 
 /* For Firefox. */
@@ -192,11 +199,6 @@ Select drop-down.
   .t7-form__select,
   .t7-form__select[size="0"],
   .t7-form__select[size="1"] {
-    background-image: url("./static/images/t7-form__select.svg");
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: auto 130%;
-
     padding-left: 1px;
     padding-right: 27px;
   }

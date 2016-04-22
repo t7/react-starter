@@ -1,5 +1,14 @@
 // Dependencies.
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+// ======
+// Redux.
+// ======
+
+import * as profileFormActions
+  from '../../redux/actions/profile_form_actions'
 
 // Utility methods.
 import utils from '../../utils'
@@ -41,8 +50,25 @@ class Page extends React.Component {
     utils.title(props)
   }
 
+  // Form change.
+  handleFormChange (e) {
+    const form = this.refs.form
+    const data = utils.parseFormData(form)
+
+    const updateProfileFormAction =
+      this.props.updateProfileFormAction.bind(this)
+
+    const timer = setTimeout(function () {
+      clearTimeout(timer)
+
+      updateProfileFormAction({
+        data: data
+      })
+    }, 100)
+  }
+
   // Form submit.
-  handleSubmit (e) {
+  handleFormSubmit (e) {
     utils.stop(e)
 
     // Get the `<form>` tag.
@@ -58,7 +84,31 @@ class Page extends React.Component {
   // Render method.
   render () {
     // Events.
-    const handleSubmit = this.handleSubmit.bind(this)
+    const handleFormChange = this.handleFormChange.bind(this)
+    const handleFormSubmit = this.handleFormSubmit.bind(this)
+
+    // Redux.
+    const d = this.props.profileFormReducer.data
+    const g = utils.getDataByName
+
+    // Field values.
+    const input_first_name = g(d, 'input_first_name')
+    const input_middle_initial = g(d, 'input_middle_initial')
+    const input_last_name = g(d, 'input_last_name')
+    const input_birth_date = g(d, 'input_birth_date')
+    const input_ssn = g(d, 'input_ssn')
+    const input_email = g(d, 'input_email')
+    const input_phone = g(d, 'input_phone')
+    const input_address_1 = g(d, 'input_address_1')
+    const input_address_2 = g(d, 'input_address_2')
+    const input_city = g(d, 'input_city')
+    const input_state = g(d, 'input_state')
+    const input_zip = g(d, 'input_zip')
+    const input_allergies = g(d, 'input_allergies')
+    const input_combat_training = g(d, 'input_combat_training')
+    const input_license_to_kill = g(d, 'input_license_to_kill')
+    const input_farewell = g(d, 'input_farewell')
+    const input_agree_to_terms = g(d, 'input_agree_to_terms')
 
     // Expose UI.
     return (
@@ -109,7 +159,11 @@ class Page extends React.Component {
               Please ensure that the following information is accurate. In case of a catastrophic space disaster, this is how we will notify your next of kin. Also, please note if you have any food allergies. Thanks.
             </BoxInfo>
 
-            <form onSubmit={handleSubmit}>
+            <form
+              ref='form'
+              onChange={handleFormChange}
+              onSubmit={handleFormSubmit}
+            >
 
               <Fieldset legend='Personal'>
 
@@ -117,45 +171,46 @@ class Page extends React.Component {
 
                   <Grid desktop='45' tablet='45'>
                     <p>
-                      <label htmlFor='_input_first_name'>
+                      <label htmlFor='input_first_name'>
                         First Name
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_first_name'
-                        defaultValue='Jonathan'
+                        id='input_first_name'
+                        defaultValue={input_first_name.value}
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='10' tablet='10'>
                     <p>
-                      <label htmlFor='_input_middle_initial'>
+                      <label htmlFor='input_middle_initial'>
                         <abbr title='Middle Initial'>
                           M.I.
                         </abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_middle_initial'
-                        defaultValue='W'
+                        id='input_middle_initial'
+                        defaultValue={input_middle_initial.value}
+                        maxlength='1'
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='45' tablet='45'>
                     <p>
-                      <label htmlFor='_input_last_name'>
+                      <label htmlFor='input_last_name'>
                         Last Name
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_last_name'
-                        defaultValue='Rogersonian'
+                        id='input_last_name'
+                        defaultValue={input_last_name.value}
                       />
                     </p>
                   </Grid>
@@ -164,22 +219,24 @@ class Page extends React.Component {
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='_input_birth_date'>
+                      <label htmlFor='input_birth_date'>
                         Birth Date
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_birth_date'
-                        defaultValue='02/10/1990'
+                        id='input_birth_date'
+                        defaultValue={input_birth_date.value}
+                        placeholder='MM/DD/YYYY'
+                        maxlength='10'
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='_input_ssn'>
+                      <label htmlFor='input_ssn'>
                         <abbr title='Social Security Number'>
                           SSN
 
@@ -188,38 +245,43 @@ class Page extends React.Component {
                       </label>
                       <br />
                       <Input
-                        id='_input_ssn'
-                        defaultValue='007-50-1337'
+                        id='input_ssn'
+                        defaultValue={input_ssn.value}
+                        placeholder='000-00-0000'
+                        maxlength='11'
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='_input_email'>
+                      <label htmlFor='input_email'>
                         Email
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_email'
-                        defaultValue='jwr@example.com'
+                        id='input_email'
+                        defaultValue={input_email.value}
+                        placeholder='name@example.com'
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='_input_phone'>
+                      <label htmlFor='input_phone'>
                         Phone
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_phone'
-                        defaultValue='555-867-5309'
+                        id='input_phone'
+                        defaultValue={input_phone.value}
+                        placeholder='000-000-0000'
+                        maxlength='12'
                       />
                     </p>
                   </Grid>
@@ -244,27 +306,27 @@ class Page extends React.Component {
 
                   <Grid desktop='50' tablet='50'>
                     <p>
-                      <label htmlFor='_input_address_1'>
+                      <label htmlFor='input_address_1'>
                         Street Address
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_address_1'
-                        defaultValue='1234 Fifth Street'
+                        id='input_address_1'
+                        defaultValue={input_address_1.value}
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='50' tablet='50'>
                     <p>
-                      <label htmlFor='_input_address_2'>
+                      <label htmlFor='input_address_2'>
                         Address Line 2
                       </label>
                       <br />
                       <Input
-                        id='_input_address_2'
+                        id={input_address_2.value}
                         defaultValue='Apartment B'
                       />
                     </p>
@@ -274,30 +336,30 @@ class Page extends React.Component {
 
                   <Grid desktop='40' tablet='40'>
                     <p>
-                      <label htmlFor='_input_city'>
+                      <label htmlFor='input_city'>
                         City
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_city'
-                        defaultValue='Beverly Hills'
+                        id='input_city'
+                        defaultValue={input_city.value}
                       />
                     </p>
                   </Grid>
 
                   <Grid desktop='40' tablet='40'>
                     <p>
-                      <label htmlFor='_input_state'>
+                      <label htmlFor='input_state'>
                         State
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Select
-                        id='_input_state'
-                        defaultValue='CA'
+                        id='input_state'
+                        defaultValue={input_state.value}
                         options={statesData}
                       />
                     </p>
@@ -305,15 +367,17 @@ class Page extends React.Component {
 
                   <Grid desktop='20' tablet='20'>
                     <p>
-                      <label htmlFor='_input_zip'>
+                      <label htmlFor='input_zip'>
                         Zip Code
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='_input_zip'
-                        defaultValue='90210'
+                        id='input_zip'
+                        defaultValue={input_zip.value}
+                        placeholder='00000'
+                        maxlength='5'
                       />
                     </p>
                   </Grid>
@@ -330,13 +394,23 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='_input_allergies'>
+                <label htmlFor='input_allergies'>
                   Allergies & Contagions
                 </label>
                 <br />
                 <Textdiv
-                  id='_input_allergies'
-                  defaultValue='No food allergies, but I am deathly allergic to cats.'
+                  id='input_allergies'
+                  defaultValue={input_allergies.value}
+                  handleChange={
+                    function (e) {
+                      if (
+                        document.activeElement !==
+                        document.getElementById('input_allergies')
+                      ) {
+                        handleFormChange(e)
+                      }
+                    }
+                  }
                 />
 
               </Fieldset>
@@ -350,15 +424,16 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      defaultChecked: true,
+                      defaultChecked: input_combat_training[0].checked,
                       label: 'Yes',
-                      value: 'true',
-                      name: '_input_combat_training'
+                      value: 'yes',
+                      name: 'input_combat_training'
                     },
                     {
+                      defaultChecked: input_combat_training[1].checked,
                       label: 'No',
-                      value: 'false',
-                      name: '_input_combat_training'
+                      value: 'no',
+                      name: 'input_combat_training'
                     }
                   ]}
                 />
@@ -372,15 +447,16 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      defaultChecked: true,
+                      defaultChecked: input_license_to_kill[0].checked,
                       label: 'Yes',
-                      value: 'true',
-                      name: '_input_license_to_kill'
+                      value: 'yes',
+                      name: 'input_license_to_kill'
                     },
                     {
+                      defaultChecked: input_license_to_kill[1].checked,
                       label: 'No',
-                      value: 'false',
-                      name: '_input_license_to_kill'
+                      value: 'no',
+                      name: 'input_license_to_kill'
                     }
                   ]}
                 />
@@ -395,13 +471,23 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='_input_farewell'>
+                <label htmlFor='input_farewell'>
                   Final Message
                 </label>
                 <br />
                 <Textdiv
-                  id='_input_farewell'
-                  defaultValue='Tell the commander that it *was* me who set fire to his car. Sorry! :)'
+                  id='input_farewell'
+                  defaultValue={input_farewell.value}
+                  handleChange={
+                    function (e) {
+                      if (
+                        document.activeElement !==
+                        document.getElementById('input_farewell')
+                      ) {
+                        handleFormChange(e)
+                      }
+                    }
+                  }
                 />
 
               </Fieldset>
@@ -414,7 +500,8 @@ class Page extends React.Component {
 
                 <p>
                   <Checkbox
-                    id='_input_agree_terms'
+                    checked={input_agree_to_terms.checked}
+                    id='input_agree_to_terms'
                     label='I agree to these terms.'
                   />
                 </p>
@@ -447,5 +534,35 @@ class Page extends React.Component {
   }
 }
 
+// Validation.
+Page.propTypes = {
+  // Redux store.
+  profileFormReducer: React.PropTypes.object,
+
+  // Redux actions.
+  updateProfileFormAction: React.PropTypes.func
+}
+
+// Map state.
+function mapStateToProps (state) {
+  return {
+    profileFormReducer: state.profileFormReducer
+  }
+}
+
+// Map dispatch.
+function mapDispatchToProps (dispatch) {
+  const actions =
+    Object.assign(
+      {},
+      profileFormActions
+    )
+
+  return bindActionCreators(actions, dispatch)
+}
+
 // Export.
-export default Page
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Page)

@@ -8,7 +8,7 @@ function convertToText (value) {
   value = value.replace(/&amp/gi, '&')
 
   // Replace spaces.
-  value = value.replace(/&nbsp/gi, ' ')
+  value = value.replace(/&nbsp;/gi, ' ')
   value = value.replace(/\s+/g, ' ')
 
   // Remove "<b>".
