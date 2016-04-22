@@ -4,7 +4,7 @@ import React from 'react'
 // Utility methods.
 import utils from '../../utils'
 
-// App components.
+// Layout components.
 import App from '../../layouts/app'
 
 // Misc components.
@@ -24,6 +24,7 @@ class Page extends React.Component {
 
   // Render method.
   render () {
+    // Expose UI.
     return (
       <App>
 

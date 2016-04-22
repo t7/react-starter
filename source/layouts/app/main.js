@@ -2,9 +2,10 @@
 import React from 'react'
 
 // Define class.
-class Main extends React.Component {
+class AppMain extends React.Component {
   // Render method.
   render () {
+    // Expose UI.
     return (
       <main role='main' className='t7-app__main'>
         {this.props.children}
@@ -14,9 +15,9 @@ class Main extends React.Component {
 }
 
 // Validation.
-Main.propTypes = {
+AppMain.propTypes = {
   children: React.PropTypes.node
 }
 
 // Export.
-export default Main
+export default AppMain

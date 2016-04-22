@@ -2,22 +2,30 @@
 import React from 'react'
 
 // Misc components.
-import Clear from '../components_misc/unsemantic/grid_clear'
-import Grid from '../components_misc/unsemantic/grid_unit'
-import GridContainer from '../components_misc/unsemantic/grid_container'
+import Clear from '../../components_misc/unsemantic/grid_clear'
+import Grid from '../../components_misc/unsemantic/grid_unit'
+import GridContainer from '../../components_misc/unsemantic/grid_container'
 
 // Define class.
-class Footer extends React.Component {
+class AppFooter extends React.Component {
   // Render method.
   render () {
     const year = new Date().getFullYear()
 
+    // Expose UI.
     return (
-      <footer className='t7-app__footer' role='contentinfo'>
+      <footer
+        className='t7-app__footer'
+        role='contentinfo'
+      >
 
         <GridContainer>
 
-          <Grid desktop='25' tablet='25' mobile='50'>
+          <Grid
+            desktop='25'
+            tablet='25'
+            mobile='50'
+          >
             <dl>
               <dt>
                 Company
@@ -37,7 +45,11 @@ class Footer extends React.Component {
             </dl>
           </Grid>
 
-          <Grid desktop='25' tablet='25' mobile='50'>
+          <Grid
+            desktop='25'
+            tablet='25'
+            mobile='50'
+          >
             <dl>
               <dt>
                 Industries
@@ -57,9 +69,16 @@ class Footer extends React.Component {
             </dl>
           </Grid>
 
-          <Clear desktop-hide tablet-hide />
+          <Clear
+            desktop-hide // true
+            tablet-hide // true
+          />
 
-          <Grid desktop='25' tablet='25' mobile='50'>
+          <Grid
+            desktop='25'
+            tablet='25'
+            mobile='50'
+          >
             <dl>
               <dt>
                 Community
@@ -79,7 +98,11 @@ class Footer extends React.Component {
             </dl>
           </Grid>
 
-          <Grid desktop='25' tablet='25' mobile='50'>
+          <Grid
+            desktop='25'
+            tablet='25'
+            mobile='50'
+          >
             <dl>
               <dt>
                 Legal
@@ -107,4 +130,4 @@ class Footer extends React.Component {
 }
 
 // Export.
-export default Footer
+export default AppFooter

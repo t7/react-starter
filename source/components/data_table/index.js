@@ -1,6 +1,6 @@
 // Dependencies.
 import React from 'react'
-import { cloneDeep, sortBy } from 'lodash'
+import { cloneDeep, isEqual, sortBy } from 'lodash'
 
 // Utility methods.
 import fake from '../../fake'
@@ -33,8 +33,21 @@ class DataTable extends React.Component {
     this.state = {
       id: this.props.id || utils.unique(),
       pageCurrent: this.props.pageCurrent,
-      sortIndex: this.props.sortIndex,
-      sortDirection: this.props.sortDirection
+      sortDirection: this.props.sortDirection,
+      sortIndex: this.props.sortIndex
+    }
+  }
+
+  // Update state, if need be.
+  componentWillReceiveProps (nextProps) {
+    const needsUpdate = !isEqual(nextProps, this.props)
+
+    if (needsUpdate) {
+      this.setState({
+        pageCurrent: nextProps.pageCurrent,
+        sortDirection: nextProps.sortDirection,
+        sortIndex: nextProps.sortIndex
+      })
     }
   }
 
@@ -299,7 +312,6 @@ DataTable.defaultProps = {
   pageSize: 20,
   pageTop: true,
   pageBottom: false,
-  sortDirection: 'desc',
 
   // Fake data.
   columns: fake.dataTableCols(),

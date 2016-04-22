@@ -1,11 +1,28 @@
 // Dependencies.
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
-// App components.
+// ======
+// Redux.
+// ======
+
+import * as accountsTabsActions
+  from '../../redux/actions/accounts_tabs_actions'
+
+import * as checkingTableActions
+  from '../../redux/actions/checking_table_actions'
+
+import * as faqAccordionActions
+  from '../../redux/actions/faq_accordion_actions'
+
+import * as savingsTableActions
+  from '../../redux/actions/savings_table_actions'
+
+// Layout components.
 import App from '../../layouts/app'
 
 // Utility methods.
-import fake from '../../fake'
 import utils from '../../utils'
 
 // Misc components.
@@ -35,21 +52,129 @@ class Page extends React.Component {
     utils.title(props)
   }
 
+  // Click: faq accordion.
+  handleClickFaqAccordion (e, index, label, selected) {
+    this.props.updateFaqAccordionAction({
+      selected: selected
+    })
+  }
+
+  // Click: accounts tabs.
+  handleClickAccountsTabs (e, index, label) {
+    this.props.updateAccountsTabsAction({
+      selected: index
+    })
+  }
+
+  // Sort: checking table.
+  handleSortCheckingTable (e, sortIndex, sortDirection) {
+    this.props.updateCheckingTableAction({
+      sortIndex: sortIndex,
+      sortDirection: sortDirection
+    })
+  }
+
+  // Pagination: checking table.
+  handlePaginationCheckingTable (e, pageCurrent) {
+    this.props.updateCheckingTableAction({
+      pageCurrent: pageCurrent
+    })
+  }
+
+  // Sort: savings table.
+  handleSortSavingsTable (e, sortIndex, sortDirection) {
+    this.props.updateSavingsTableAction({
+      sortIndex: sortIndex,
+      sortDirection: sortDirection
+    })
+  }
+
+  // Pagination: savings table.
+  handlePaginationSavingsTable (e, pageCurrent) {
+    this.props.updateSavingsTableAction({
+      pageCurrent: pageCurrent
+    })
+  }
+
   // Render method.
   render () {
-    // Right top area.
-    const rightClassName = [
-      't7-tablet-float-right',
-      't7-desktop-float-right',
-      't7-gutter-bottom'
-    ].join(' ')
+    // ======
+    // Props.
+    // ======
 
-    // Heading area.
-    const styleHeading = [
-      't7-tablet-float-left',
-      't7-desktop-float-left'
-    ].join(' ')
+    // Accordion.
 
+    const selectedFaqAccordion =
+      this.props.faqAccordionReducer.selected
+
+    // Tabs.
+
+    const selectedAccountsTabs =
+      this.props.accountsTabsReducer.selected
+
+    // Checking table.
+
+    const columnsCheckingTable =
+      this.props.checkingTableReducer.columns
+
+    const dataCheckingTable =
+      this.props.checkingTableReducer.data
+
+    const pageCurrentCheckingTable =
+      this.props.checkingTableReducer.pageCurrent
+
+    const sortIndexCheckingTable =
+      this.props.checkingTableReducer.sortIndex
+
+    const sortDirectionCheckingTable =
+      this.props.checkingTableReducer.sortDirection
+
+    const pageSizeCheckingTable =
+      this.props.checkingTableReducer.pageSize
+
+    // Savings table.
+
+    const columnsSavingsTable =
+      this.props.savingsTableReducer.columns
+
+    const dataSavingsTable =
+      this.props.savingsTableReducer.data
+
+    const pageCurrentSavingsTable =
+      this.props.savingsTableReducer.pageCurrent
+
+    const sortIndexSavingsTable =
+      this.props.savingsTableReducer.sortIndex
+
+    const sortDirectionSavingsTable =
+      this.props.savingsTableReducer.sortDirection
+
+    const pageSizeSavingsTable =
+      this.props.savingsTableReducer.pageSize
+
+    // =======
+    // Events.
+    // =======
+
+    const handleClickFaqAccordion =
+      this.handleClickFaqAccordion.bind(this)
+
+    const handleClickAccountsTabs =
+      this.handleClickAccountsTabs.bind(this)
+
+    const handleSortCheckingTable =
+      this.handleSortCheckingTable.bind(this)
+
+    const handlePaginationCheckingTable =
+      this.handlePaginationCheckingTable.bind(this)
+
+    const handleSortSavingsTable =
+      this.handleSortSavingsTable.bind(this)
+
+    const handlePaginationSavingsTable =
+      this.handlePaginationSavingsTable.bind(this)
+
+    // Expose UI.
     return (
       <App>
 
@@ -57,7 +182,12 @@ class Page extends React.Component {
 
           <Grid desktop='100'>
 
-            <h1 className={styleHeading}>
+            <h1
+              className='
+                t7-tablet-float-left
+                t7-desktop-float-left
+              '
+            >
               Bank Accounts
 
               <small>
@@ -65,7 +195,12 @@ class Page extends React.Component {
               </small>
             </h1>
 
-            <div className={rightClassName}>
+            <div
+              className='
+                t7-tablet-float-right
+                t7-desktop-float-right
+              '
+            >
               <ListSeparator>
                 <li>
                   <a>Edit Accounts</a>
@@ -82,17 +217,26 @@ class Page extends React.Component {
 
           <Grid desktop='75' tablet='75'>
 
-            <Tabs selected={0}>
+            <Tabs
+              selected={selectedAccountsTabs}
+              handleClick={handleClickAccountsTabs}
+            >
 
               <TabPanel label='Checking'>
 
-                <h2 className={styleHeading}>
+                <h2 className='t7-float-left'>
                   Checking
                 </h2>
 
-                <div className={rightClassName}>
+                <div
+                  className='
+                    t7-float-right
+                    t7-gutter-bottom
+                  '
+                >
                   <Dropdown
                     text='Options'
+                    menuAlign='right'
                     items={[
                       {
                         text: 'Schedule Payment'
@@ -114,22 +258,35 @@ class Page extends React.Component {
                 </p>
 
                 <DataTable
-                  data={fake.dataTableRows(70, 3500)}
-                  columns={fake.dataTableCols()}
-                  pageSize={15}
+                  columns={columnsCheckingTable}
+                  data={dataCheckingTable}
+                  pageSize={pageSizeCheckingTable}
+
+                  pageCurrent={pageCurrentCheckingTable}
+                  sortIndex={sortIndexCheckingTable}
+                  sortDirection={sortDirectionCheckingTable}
+
+                  handleSort={handleSortCheckingTable}
+                  handlePagination={handlePaginationCheckingTable}
                 />
 
               </TabPanel>
 
               <TabPanel label='Savings'>
 
-                <h2 className={styleHeading}>
+                <h2 className='t7-float-left'>
                   Savings
                 </h2>
 
-                <div className={rightClassName}>
+                <div
+                  className='
+                    t7-float-right
+                    t7-gutter-bottom
+                  '
+                >
                   <Dropdown
                     text='Options'
+                    menuAlign='right'
                     items={[
                       {
                         text: 'Investment Advice'
@@ -148,9 +305,16 @@ class Page extends React.Component {
                 </p>
 
                 <DataTable
-                  data={fake.dataTableRows(70, 9000)}
-                  columns={fake.dataTableCols()}
-                  pageSize={15}
+                  columns={columnsSavingsTable}
+                  data={dataSavingsTable}
+                  pageSize={pageSizeSavingsTable}
+
+                  pageCurrent={pageCurrentSavingsTable}
+                  sortIndex={sortIndexSavingsTable}
+                  sortDirection={sortDirectionSavingsTable}
+
+                  handleSort={handleSortSavingsTable}
+                  handlePagination={handlePaginationSavingsTable}
                 />
 
               </TabPanel>
@@ -163,7 +327,10 @@ class Page extends React.Component {
               </abbr>
             </h6>
 
-            <AccordionMulti>
+            <AccordionMulti
+              selected={selectedFaqAccordion}
+              handleClick={handleClickFaqAccordion}
+            >
               <AccordionPanel label='Is it worth refinancing my home?'>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -255,5 +422,47 @@ class Page extends React.Component {
   }
 }
 
+// Validation.
+Page.propTypes = {
+  // Redux store.
+  accountsTabsReducer: React.PropTypes.object,
+  checkingTableReducer: React.PropTypes.object,
+  faqAccordionReducer: React.PropTypes.object,
+  savingsTableReducer: React.PropTypes.object,
+
+  // Redux actions.
+  updateAccountsTabsAction: React.PropTypes.func,
+  updateCheckingTableAction: React.PropTypes.func,
+  updateFaqAccordionAction: React.PropTypes.func,
+  updateSavingsTableAction: React.PropTypes.func
+}
+
+// Map state.
+function mapStateToProps (state) {
+  return {
+    accountsTabsReducer: state.accountsTabsReducer,
+    checkingTableReducer: state.checkingTableReducer,
+    faqAccordionReducer: state.faqAccordionReducer,
+    savingsTableReducer: state.savingsTableReducer
+  }
+}
+
+// Map dispatch.
+function mapDispatchToProps (dispatch) {
+  const actions =
+    Object.assign(
+      {},
+      accountsTabsActions,
+      checkingTableActions,
+      faqAccordionActions,
+      savingsTableActions
+    )
+
+  return bindActionCreators(actions, dispatch)
+}
+
 // Export.
-export default Page
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Page)

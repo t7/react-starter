@@ -2,10 +2,10 @@
 import React from 'react'
 
 // UI components.
-import Wrapper from './app_wrapper'
-import Header from './app_header'
-import Main from './app_main'
-import Footer from './app_footer'
+import AppWrapper from './wrapper'
+import AppHeader from './header'
+import AppMain from './main'
+import AppFooter from './footer'
 
 // Define class.
 class App extends React.Component {
@@ -13,13 +13,13 @@ class App extends React.Component {
   render () {
     return (
       <div className='t7-app'>
-        <Wrapper>
-          <Header />
-          <Main>
+        <AppWrapper>
+          <AppHeader />
+          <AppMain>
             {this.props.children}
-          </Main>
-        </Wrapper>
-        <Footer />
+          </AppMain>
+        </AppWrapper>
+        <AppFooter />
       </div>
     )
   }

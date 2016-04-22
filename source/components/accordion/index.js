@@ -1,6 +1,6 @@
 // Dependencies.
 import React from 'react'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isEqual } from 'lodash'
 
 // Utility methods.
 import fake from '../../fake'
@@ -24,6 +24,17 @@ class Accordion extends React.Component {
     this.state = {
       id: this.props.id || utils.unique(),
       selected: this.props.selected
+    }
+  }
+
+  // Override state, if need be.
+  componentWillReceiveProps (nextProps) {
+    const needsUpdate = !isEqual(nextProps, this.props)
+
+    if (needsUpdate) {
+      this.setState({
+        selected: nextProps.selected
+      })
     }
   }
 
@@ -62,9 +73,7 @@ class Accordion extends React.Component {
       return
     }
 
-    const isActive = selected[index]
-
-    handleClick(e, index, label, isActive)
+    handleClick(e, index, label, selected)
   }
 
   // Render method.

@@ -9,7 +9,7 @@ const selected = {
   2: true
 }
 
-function handleClick (e, index, label, isActive) {
+function handleClick (e, index, label, selected) {
   /*
     `e` is the event.
 
@@ -17,7 +17,7 @@ function handleClick (e, index, label, isActive) {
 
     `label` is the text itself.
 
-    `isActive` denotes selected state.
+    `selected` is the state object.
   */
 }
 ```

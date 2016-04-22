@@ -4,7 +4,7 @@ import React from 'react'
 // Utility methods.
 import utils from '../../utils'
 
-// App components.
+// Layout components.
 import App from '../../layouts/app'
 
 // Misc components.
@@ -60,6 +60,7 @@ class Page extends React.Component {
     // Events.
     const handleSubmit = this.handleSubmit.bind(this)
 
+    // Expose UI.
     return (
       <App>
 
