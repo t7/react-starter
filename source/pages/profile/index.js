@@ -424,13 +424,13 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      defaultChecked: input_combat_training[0].checked,
+                      checked: input_combat_training[0].checked,
                       label: 'Yes',
                       value: 'yes',
                       name: 'input_combat_training'
                     },
                     {
-                      defaultChecked: input_combat_training[1].checked,
+                      checked: input_combat_training[1].checked,
                       label: 'No',
                       value: 'no',
                       name: 'input_combat_training'
@@ -447,13 +447,13 @@ class Page extends React.Component {
                 <RadioListInline
                   options={[
                     {
-                      defaultChecked: input_license_to_kill[0].checked,
+                      checked: input_license_to_kill[0].checked,
                       label: 'Yes',
                       value: 'yes',
                       name: 'input_license_to_kill'
                     },
                     {
-                      defaultChecked: input_license_to_kill[1].checked,
+                      checked: input_license_to_kill[1].checked,
                       label: 'No',
                       value: 'no',
                       name: 'input_license_to_kill'
