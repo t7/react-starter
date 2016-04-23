@@ -56,7 +56,7 @@ class Page extends React.Component {
     const data = utils.parseFormData(form)
 
     const updateProfileFormAction =
-      this.props.updateProfileFormAction.bind(this)
+      this.props.updateProfileFormAction
 
     const timer = setTimeout(function () {
       clearTimeout(timer)
