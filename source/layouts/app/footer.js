@@ -87,7 +87,7 @@ class AppFooter extends React.Component {
                 <a>Annual BBQ</a>
               </dd>
               <dd>
-                <a>Charity Giving</a>
+                <a>Charitable Giving</a>
               </dd>
               <dd>
                 <a>Leadership Mentoring</a>
