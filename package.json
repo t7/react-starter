@@ -27,7 +27,7 @@
     ]
   },
   "scripts": {
-    "build": "rimraf build/* && cross-env BABEL_ENV=production webpack",
+    "build": "npm run test && rimraf build/* && cross-env BABEL_ENV=production webpack",
     "start": "cross-env BABEL_ENV=development webpack-dev-server --hot --inline --progress --content-base source",
     "pretest": "npm run lint",
     "test": "jest --coverage",
