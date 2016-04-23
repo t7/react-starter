@@ -36,7 +36,6 @@ class Checkbox extends React.Component {
 
     const isValid =
       utils.exists(newChecked) &&
-      utils.exists(oldChecked) &&
       newChecked !== oldChecked
 
     if (isValid) {

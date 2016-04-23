@@ -17,7 +17,24 @@ class Textdiv extends React.Component {
   // Set default state.
   defaultState () {
     this.state = {
+      value: this.props.value || this.props.defaultValue,
       id: this.props.id || utils.unique()
+    }
+  }
+
+  // Force state change.
+  componentWillReceiveProps (nextProps) {
+    const newValue = nextProps.value
+    const oldValue = this.props.value
+
+    const isValid =
+      utils.exists(newValue) &&
+      newValue !== oldValue
+
+    if (isValid) {
+      this.setState({
+        value: newValue
+      })
     }
   }
 
@@ -26,26 +43,30 @@ class Textdiv extends React.Component {
     document.body.setAttribute('spellcheck', false)
   }
 
+  // When input gains focus.
+  handleFocus (e) {
+    utils.convertContentFocus(e)
+  }
+
+  // When input loses focus.
   handleBlur (e) {
     utils.convertContentEditable(e)
     this.handleChange(e)
   }
 
-  handleFocus (e) {
-    utils.convertContentFocus(e)
-    this.handleChange(e)
-  }
-
+  // When user types.
   handleKeyUp (e) {
     utils.convertContentEditable(e)
     this.handleChange(e)
   }
 
+  // When user pastes text.
   handlePaste (e) {
     utils.convertOnPaste(e)
     this.handleChange(e)
   }
 
+  // When value changes.
   handleChange (e) {
     const handleChange = this.props.handleChange
 
@@ -72,7 +93,7 @@ class Textdiv extends React.Component {
     const placeholder = this.props.placeholder
     const required = this.props.required
 
-    var value = this.props.value || this.props.defaultValue
+    var value = this.state.value
 
     if (!value && placeholder) {
       value = placeholder

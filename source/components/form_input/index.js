@@ -17,11 +17,35 @@ class Input extends React.Component {
   // Set state.
   defaultState () {
     this.state = {
-      id: this.props.id || utils.unique()
+      id: this.props.id || utils.unique(),
+      value: this.props.value || this.props.defaultValue
     }
   }
 
-  handleChange (e) {
+  // Force state change.
+  componentWillReceiveProps (nextProps) {
+    const newValue = nextProps.value
+    const oldValue = this.props.value
+
+    const isValid =
+      utils.exists(newValue) &&
+      newValue !== oldValue
+
+    if (isValid) {
+      this.setState({
+        value: newValue
+      })
+    }
+  }
+
+  // When input loses focus.
+  handleBlur (e) {
+    const value = utils.trim(e.target.value)
+
+    this.setState({
+      value: value
+    })
+
     const handleChange = this.props.handleChange
 
     // Exit, if no callback.
@@ -29,9 +53,25 @@ class Input extends React.Component {
       return
     }
 
-    const el = e.target
-    const value = utils.trim(el.value)
+    handleChange(e, value)
+  }
 
+  // When value changes.
+  handleChange (e) {
+    var value = e.target.value
+
+    this.setState({
+      value: value
+    })
+
+    const handleChange = this.props.handleChange
+
+    // Exit, if no callback.
+    if (typeof handleChange !== 'function') {
+      return
+    }
+
+    value = utils.trim(value)
     handleChange(e, value)
   }
 
@@ -39,6 +79,7 @@ class Input extends React.Component {
   render () {
     // State driven.
     const id = this.state.id
+    const value = this.state.value
 
     // Props driven.
     const autofocus = this.props.autofocus
@@ -52,10 +93,7 @@ class Input extends React.Component {
     const type = this.props.type
     const width = this.props.width
 
-    // Control text value.
-    const defaultValue = this.props.defaultValue
-    const value = this.props.value
-
+    // Default class name.
     var className = ['t7-form__input']
 
     if (width === 'auto') {
@@ -65,6 +103,7 @@ class Input extends React.Component {
     className = className.join(' ')
 
     // Events.
+    const handleBlur = this.handleBlur.bind(this)
     const handleChange = this.handleChange.bind(this)
 
     return (
@@ -81,9 +120,8 @@ class Input extends React.Component {
         size={size}
         type={type}
 
-        defaultValue={defaultValue}
         value={value}
-
+        onBlur={handleBlur}
         onChange={handleChange}
       />
     )

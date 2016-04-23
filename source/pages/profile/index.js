@@ -161,7 +161,6 @@ class Page extends React.Component {
 
             <form
               ref='form'
-              onChange={handleFormChange}
               onSubmit={handleFormSubmit}
             >
 
@@ -180,6 +179,7 @@ class Page extends React.Component {
                       <Input
                         id='input_first_name'
                         defaultValue={input_first_name.value}
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -196,6 +196,7 @@ class Page extends React.Component {
                         id='input_middle_initial'
                         defaultValue={input_middle_initial.value}
                         maxlength='1'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -211,6 +212,7 @@ class Page extends React.Component {
                       <Input
                         id='input_last_name'
                         defaultValue={input_last_name.value}
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -230,6 +232,7 @@ class Page extends React.Component {
                         defaultValue={input_birth_date.value}
                         placeholder='MM/DD/YYYY'
                         maxlength='10'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -249,6 +252,7 @@ class Page extends React.Component {
                         defaultValue={input_ssn.value}
                         placeholder='000-00-0000'
                         maxlength='11'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -265,6 +269,7 @@ class Page extends React.Component {
                         id='input_email'
                         defaultValue={input_email.value}
                         placeholder='name@example.com'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -282,6 +287,7 @@ class Page extends React.Component {
                         defaultValue={input_phone.value}
                         placeholder='000-000-0000'
                         maxlength='12'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -315,6 +321,7 @@ class Page extends React.Component {
                       <Input
                         id='input_address_1'
                         defaultValue={input_address_1.value}
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -328,6 +335,7 @@ class Page extends React.Component {
                       <Input
                         id={input_address_2.value}
                         defaultValue='Apartment B'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -345,6 +353,7 @@ class Page extends React.Component {
                       <Input
                         id='input_city'
                         defaultValue={input_city.value}
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -361,6 +370,7 @@ class Page extends React.Component {
                         id='input_state'
                         defaultValue={input_state.value}
                         options={statesData}
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -378,6 +388,7 @@ class Page extends React.Component {
                         defaultValue={input_zip.value}
                         placeholder='00000'
                         maxlength='5'
+                        handleChange={handleFormChange}
                       />
                     </p>
                   </Grid>
@@ -401,16 +412,8 @@ class Page extends React.Component {
                 <Textdiv
                   id='input_allergies'
                   defaultValue={input_allergies.value}
-                  handleChange={
-                    function (e) {
-                      if (
-                        document.activeElement !==
-                        document.getElementById('input_allergies')
-                      ) {
-                        handleFormChange(e)
-                      }
-                    }
-                  }
+                  handleChange={handleFormChange}
+                  handleChange={handleFormChange}
                 />
 
               </Fieldset>
@@ -422,6 +425,7 @@ class Page extends React.Component {
                 </p>
 
                 <RadioListInline
+                  handleChange={handleFormChange}
                   options={[
                     {
                       checked: input_combat_training[0].checked,
@@ -445,6 +449,7 @@ class Page extends React.Component {
                 </p>
 
                 <RadioListInline
+                  handleChange={handleFormChange}
                   options={[
                     {
                       checked: input_license_to_kill[0].checked,
@@ -478,16 +483,7 @@ class Page extends React.Component {
                 <Textdiv
                   id='input_farewell'
                   defaultValue={input_farewell.value}
-                  handleChange={
-                    function (e) {
-                      if (
-                        document.activeElement !==
-                        document.getElementById('input_farewell')
-                      ) {
-                        handleFormChange(e)
-                      }
-                    }
-                  }
+                  handleChange={handleFormChange}
                 />
 
               </Fieldset>
@@ -503,6 +499,7 @@ class Page extends React.Component {
                     checked={input_agree_to_terms.checked}
                     id='input_agree_to_terms'
                     label='I agree to these terms.'
+                    handleChange={handleFormChange}
                   />
                 </p>
 

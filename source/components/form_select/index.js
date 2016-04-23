@@ -21,6 +21,7 @@ class Select extends React.Component {
     }
   }
 
+  // When value changes.
   handleChange (e) {
     const handleChange = this.props.handleChange
 
