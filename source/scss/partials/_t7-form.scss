@@ -79,7 +79,8 @@ Form element "reset."
 }
 
 .t7-form__input::-webkit-input-placeholder,
-.t7-form__textarea::-webkit-input-placeholder {
+.t7-form__textarea::-webkit-input-placeholder,
+.t7-form__textarea[data-has-placeholder="true"] {
   color: #ccc;
 }
 

@@ -1,10 +1,17 @@
-// Clean up strings.
-function trim (str) {
-  str = '' + str
-  str = str.trim()
-  str = str.replace(/\s+/g, ' ')
+// Utility methods.
+import utils from '../utils'
 
-  return str
+// Clean up strings.
+function trim (value) {
+  if (!utils.exists(value)) {
+    return
+  }
+
+  value = '' + value
+  value = value.trim()
+  value = value.replace(/\s+/g, ' ')
+
+  return value
 }
 
 // Expose function.

@@ -16,9 +16,17 @@ class Textdiv extends React.Component {
 
   // Set default state.
   defaultState () {
+    const id = this.props.id || utils.unique()
+    const value = this.props.value || this.props.defaultValue
+
+    // Placeholder?
+    const hasPlaceholder =
+      !value && utils.exists(this.props.placeholder)
+
     this.state = {
-      value: this.props.value || this.props.defaultValue,
-      id: this.props.id || utils.unique()
+      hasPlaceholder: hasPlaceholder,
+      id: id,
+      value: value
     }
   }
 
@@ -33,6 +41,7 @@ class Textdiv extends React.Component {
 
     if (isValid) {
       this.setState({
+        hasPlaceholder: false,
         value: newValue
       })
     }
@@ -45,11 +54,29 @@ class Textdiv extends React.Component {
 
   // When input gains focus.
   handleFocus (e) {
+    if (!this.state.hasPlaceholder) {
+      return
+    }
+
     utils.convertContentFocus(e)
+
+    this.setState({
+      hasPlaceholder: false
+    })
   }
 
   // When input loses focus.
   handleBlur (e) {
+    const value = utils.trim(e.target.innerHTML)
+
+    // Placeholder?
+    const hasPlaceholder =
+      !value && utils.exists(this.props.placeholder)
+
+    this.setState({
+      hasPlaceholder: hasPlaceholder
+    })
+
     utils.convertContentEditable(e)
     this.handleChange(e)
   }
@@ -75,8 +102,12 @@ class Textdiv extends React.Component {
       return
     }
 
-    const el = e.target
-    const value = utils.convertToText(el.innerHTML)
+    const placeholder = this.props.placeholder
+    var value = utils.convertToText(e.target.innerHTML)
+
+    if (value === placeholder) {
+      value = ''
+    }
 
     handleChange(e, value)
   }
@@ -84,6 +115,7 @@ class Textdiv extends React.Component {
   // Render method.
   render () {
     // State driven.
+    const hasPlaceholder = this.state.hasPlaceholder
     const id = this.state.id
 
     // Props driven.
@@ -117,9 +149,13 @@ class Textdiv extends React.Component {
         disabled={disabled}
         id={id}
         name={name}
-        placeholder={placeholder}
         required={required}
 
+        // Placeholder.
+        data-has-placeholder={hasPlaceholder}
+        placeholder={placeholder}
+
+        // Events.
         onBlur={handleBlur}
         onInput={handleChange}
         onFocus={handleFocus}
