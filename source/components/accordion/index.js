@@ -29,9 +29,9 @@ class Accordion extends React.Component {
 
   // Override state, if need be.
   componentWillReceiveProps (nextProps) {
-    const needsUpdate = !isEqual(nextProps, this.props)
+    const isValid = !isEqual(nextProps, this.props)
 
-    if (needsUpdate) {
+    if (isValid) {
       this.setState({
         selected: nextProps.selected
       })

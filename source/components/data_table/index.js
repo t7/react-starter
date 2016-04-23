@@ -40,9 +40,9 @@ class DataTable extends React.Component {
 
   // Update state, if need be.
   componentWillReceiveProps (nextProps) {
-    const needsUpdate = !isEqual(nextProps, this.props)
+    const isValid = !isEqual(nextProps, this.props)
 
-    if (needsUpdate) {
+    if (isValid) {
       this.setState({
         pageCurrent: nextProps.pageCurrent,
         sortDirection: nextProps.sortDirection,
