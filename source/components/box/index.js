@@ -18,8 +18,24 @@ class Box extends React.Component {
   // Set default state.
   defaultState () {
     this.state = {
-      id: this.props.id || utils.unique(),
-      hidden: false
+      hidden: this.props.hidden || false,
+      id: this.props.id || utils.unique()
+    }
+  }
+
+  // Force state change.
+  componentWillReceiveProps (nextProps) {
+    const newHidden = nextProps.hidden
+    const oldHidden = this.props.hidden
+
+    const isValid =
+      utils.exists(newHidden) &&
+      newHidden !== oldHidden
+
+    if (isValid) {
+      this.setState({
+        hidden: newHidden
+      })
     }
   }
 
@@ -188,6 +204,9 @@ Box.propTypes = {
   id: React.PropTypes.string,
   legend: React.PropTypes.string,
   mode: React.PropTypes.string,
+
+  // Show/Hide.
+  hidden: React.PropTypes.bool,
 
   // Events.
   handleClick: React.PropTypes.func
