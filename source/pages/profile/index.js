@@ -413,7 +413,6 @@ class Page extends React.Component {
                   id='input_allergies'
                   defaultValue={input_allergies.value}
                   handleChange={handleFormChange}
-                  handleChange={handleFormChange}
                 />
 
               </Fieldset>
