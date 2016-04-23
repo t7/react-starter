@@ -1,3 +1,4 @@
+// Dependencies.
 var autoprefixer = require('autoprefixer')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -5,23 +6,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
 var webpack = require('webpack')
 
-// ======================
-// Returns *.scss loader.
-// ======================
-
-function getStyleLoader () {
-  var x = 'style!css?-url!postcss!sass'
-
-  if (process.env.BABEL_ENV === 'production') {
-    x = ExtractTextPlugin.extract('style', 'css?-url&minimize!postcss!sass')
-  }
-
-  return x
-}
-
-// ========
-// Plugins.
-// ========
+// ================ //
+// ================ //
+// Default plugins. //
+// ================ //
+// ================ //
 
 var plugins = [
   // Generate "index.html" file.
@@ -60,13 +49,24 @@ var plugins = [
   })
 ]
 
-// For production build.
+// ============================= //
+// ============================= //
+// Plugins for production build. //
+// ============================= //
+// ============================= //
+
 if (process.env.BABEL_ENV === 'production') {
-  // Set NODE_ENV.
+  /*
+    Set NODE_ENV, because some modules like
+    React/Redux look for this in their code.
+
+    Without adding this, the build process
+    will just minify their "dev" versions.
+  */
   plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production')
       }
     })
   )
@@ -92,52 +92,73 @@ if (process.env.BABEL_ENV === 'production') {
   )
 }
 
-// ========================
-// Export Webpack settings.
-// ========================
+// =============================== //
+// =============================== //
+// Loaders for various file types. //
+// =============================== //
+// =============================== //
+
+// Determine *.scss loader.
+function sassLoader () {
+  var x = 'style!css?-url!postcss!sass'
+
+  if (process.env.BABEL_ENV === 'production') {
+    x = ExtractTextPlugin.extract('style', 'css?-url&minimize!postcss!sass')
+  }
+
+  return x
+}
+
+var loaders = [
+  // JSON.
+  {
+    test: /\.json$/,
+    loader: 'json-loader',
+    exclude: /node_modules/
+  },
+  // JavaScript.
+  {
+    test: /\.js$/,
+    loaders: ['react-hot', 'babel'],
+    exclude: /node_modules/
+  },
+  // CSS.
+  {
+    test: /\.css$/,
+    loader: ExtractTextPlugin.extract(
+      'style-loader',
+      'css-loader?minimize',
+      'postcss-loader'
+    )
+  },
+  // Sass.
+  {
+    test: /\.scss$/,
+    loader: sassLoader()
+  }
+]
+
+// ======================== //
+// ======================== //
+// Export Webpack settings. //
+// ======================== //
+// ======================== //
 
 module.exports = {
+  // Development code.
   entry: [
     './source'
   ],
+  // Production build.
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'bundle.js'
   },
-  plugins: plugins,
   module: {
-    loaders: [
-      // JSON.
-      {
-        test: /\.json$/,
-        loader: 'json-loader',
-        exclude: /node_modules/
-      },
-      // JavaScript.
-      {
-        test: /\.js$/,
-        loaders: ['react-hot', 'babel'],
-        exclude: /node_modules/
-      },
-      // CSS.
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader?minimize&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'postcss-loader'
-        )
-      },
-      // Sass.
-      {
-        test: /\.scss$/,
-        loader: getStyleLoader()
-      }
-    ]
+    loaders: loaders
   },
-  postcss: function () {
-    return [
-      autoprefixer
-    ]
-  }
+  plugins: plugins,
+  postcss: [
+    autoprefixer
+  ]
 }
