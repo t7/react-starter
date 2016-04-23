@@ -1,5 +1,5 @@
 // Import individual files.
-import alphanumeric from './_alphanumeric'
+import ajax from './_ajax'
 import convertContentEditable from './_convert_content_editable'
 import convertContentFocus from './_convert_content_focus'
 import convertOnPaste from './_convert_on_paste'
@@ -23,27 +23,27 @@ import unique from './_unique'
 
 // Bundle up methods.
 const utils = {
-  alphanumeric: alphanumeric,
-  convertContentEditable: convertContentEditable,
-  convertContentFocus: convertContentFocus,
-  convertOnPaste: convertOnPaste,
-  convertToMarkup: convertToMarkup,
-  convertToText: convertToText,
-  exists: exists,
-  getDataByName: getDataByName,
-  log: log,
-  markdown: markdown,
-  navigate: navigate,
-  parseFormData: parseFormData,
-  placeholder: placeholder,
-  regex: regex,
-  save: save,
-  stop: stop,
-  storage: storage,
-  title: title,
-  today: today,
-  trim: trim,
-  unique: unique
+  ajax,
+  convertContentEditable,
+  convertContentFocus,
+  convertOnPaste,
+  convertToMarkup,
+  convertToText,
+  exists,
+  getDataByName,
+  log,
+  markdown,
+  navigate,
+  parseFormData,
+  placeholder,
+  regex,
+  save,
+  stop,
+  storage,
+  title,
+  today,
+  trim,
+  unique
 }
 
 // Expose object.
