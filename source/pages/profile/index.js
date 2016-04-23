@@ -64,7 +64,7 @@ class Page extends React.Component {
       updateProfileFormAction({
         data: data
       })
-    }, 100)
+    }, 16)
   }
 
   // Form submit.
