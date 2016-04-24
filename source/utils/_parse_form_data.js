@@ -28,11 +28,18 @@ function parseFormData (form) {
     const type = el.type
     const isTextdiv = el.getAttribute('contenteditable')
 
+    // Set in conditional.
     var value
 
-    // If it's a Textdiv, treat differently.
+    // If it's a <Textdiv>, treat differently.
     if (isTextdiv) {
       value = utils.convertToText(el.innerHTML)
+
+      let placeholder = el.getAttribute('placeholder')
+
+      if (value === placeholder) {
+        value = ''
+      }
 
     // Else, typical form element.
     } else {

@@ -68,17 +68,28 @@ class Page extends React.Component {
   }
 
   // Form submit.
-  handleFormSubmit (e) {
+  handleFormSubmit (e, fileName) {
     utils.stop(e)
 
     // Get the `<form>` tag.
-    const form = e.target
+    const form = this.refs.form
 
     // Get form data.
     const data = utils.parseFormData(form)
 
     // Log the form data.
     utils.log(data)
+
+    // Save JSON file?
+    const saveToFile =
+      fileName && typeof fileName === 'string'
+
+    if (saveToFile) {
+      fileName = fileName.replace(/\.json/gi, '')
+      fileName += '.json'
+
+      utils.save(data, fileName)
+    }
   }
 
   // Render method.
@@ -333,8 +344,8 @@ class Page extends React.Component {
                       </label>
                       <br />
                       <Input
-                        id={input_address_2.value}
-                        defaultValue='Apartment B'
+                        id='input_address_2'
+                        defaultValue={input_address_2.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -505,14 +516,18 @@ class Page extends React.Component {
                 <ListInline>
                   <li>
                     <Button
-                      text='Update Profile Details'
+                      text='Submit Form'
                       mode='positive'
                       type='submit'
                     />
                   </li>
                   <li>
                     <Button
-                      text='Cancel'
+                      text='Save JSON'
+                      handleClick={function (e) {
+                        // Save *.json file.
+                        handleFormSubmit(e, 'form_data.json')
+                      }}
                     />
                   </li>
                 </ListInline>
