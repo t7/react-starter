@@ -90,8 +90,8 @@ Form element "reset."
   opacity: 1;
 }
 
-.gs-form__input:-ms-input-placeholder,
-.gs-form__textarea:-ms-input-placeholder {
+.t7-form__input:-ms-input-placeholder,
+.t7-form__textarea:-ms-input-placeholder {
   color: #ccc;
 }
 
@@ -141,7 +141,7 @@ Shared styles.
 .t7-form__select:not([disabled]):focus,
 .t7-form__textarea:not([disabled]):focus {
   border-color: #39f;
-  box-shadow: #39f 0 0 2px 0;
+  box-shadow: 0 0 2px 0 #39f;
 }
 
 .t7-form__input--width-auto,
@@ -305,16 +305,81 @@ Button mode.
   background: #963;
 }
 
-/*
-Checkbox & Radio.
-============================================================
-*/
+// Checkbox & Radio.
+//==================================================
 
 .t7-form__radio,
 .t7-form__checkbox {
-  margin-left: 0;
-  margin-right: 10px;
+  margin: 0;
+  position: absolute;
+  left: -99999px;
 }
+
+.t7-form__radio__label,
+.t7-form__checkbox__label {
+  position: relative;
+  overflow: hidden;
+}
+
+.t7-form__radio__fake,
+.t7-form__checkbox__fake {
+  background-color: #fff;
+  background-size: 0% 0%;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  border: 1px solid #999;
+  display: inline-block;
+  vertical-align: middle;
+
+  margin-right: 7px;
+
+  width: 20px;
+  height: 20px;
+
+  position: relative;
+  top: -1px;
+
+  transition: background-size 150ms;
+}
+
+.t7-form__checkbox__fake {
+  background-image: url("./static/images/t7-form__checkbox__fake.svg");
+  border-radius: 4px;
+}
+
+.t7-form__radio__fake {
+  background-image: url("./static/images/t7-form__radio__fake.svg");
+  border-radius: 10px;
+}
+
+// Checked: radio.
+.t7-form__radio:checked + .t7-form__radio__fake {
+  background-size: 10px 10px;
+}
+
+// Checked: checkbox.
+.t7-form__checkbox:checked + .t7-form__checkbox__fake {
+  background-size: 12px 12px;
+}
+
+// Disabled state.
+.t7-form__radio[disabled] + .t7-form__radio__fake,
+.t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
+  background-color: #eee;
+}
+
+// Focus state.
+.t7-form__radio:not([disabled]):focus + .t7-form__radio__fake,
+.t7-form__checkbox:not([disabled]):focus + .t7-form__checkbox__fake {
+  border-color: #39f;
+  box-shadow: 0 0 2px 0 #39f;
+}
+
+/*
+Lists: checkbox, radio.
+============================================================
+*/
 
 ul[class*="t7-list-inline"] li + li .t7-form__radio,
 ul[class*="t7-list-inline"] li + li .t7-form__checkbox {
@@ -331,7 +396,9 @@ Disabled state.
 .t7-form__button[disabled],
 .t7-form__input[disabled],
 .t7-form__select[disabled],
-.t7-form__textarea[disabled] {
+.t7-form__textarea[disabled],
+.t7-form__radio[disabled] + .t7-form__radio__fake,
+.t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
   -khtml-user-select: none;

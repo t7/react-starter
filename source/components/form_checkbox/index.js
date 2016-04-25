@@ -79,7 +79,10 @@ class Checkbox extends React.Component {
     const handleChange = this.handleChange.bind(this)
 
     return (
-      <label htmlFor={id}>
+      <label
+        htmlFor={id}
+        className='t7-form__checkbox__label'
+      >
         <input
           autoFocus={autofocus}
           className='t7-form__checkbox'
@@ -93,6 +96,7 @@ class Checkbox extends React.Component {
           checked={checked}
           onChange={handleChange}
         />
+        <span className='t7-form__checkbox__fake' />
         {label}
       </label>
     )

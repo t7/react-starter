@@ -80,10 +80,13 @@ class Radio extends React.Component {
     const handleChange = this.handleChange.bind(this)
 
     return (
-      <label htmlFor={id}>
+      <label
+        htmlFor={id}
+        className='t7-form__radio__label'
+      >
         <input
           autoFocus={autofocus}
-          className='t7-form__checkbox'
+          className='t7-form__radio'
           disabled={disabled}
           id={id}
           name={name}
@@ -94,6 +97,7 @@ class Radio extends React.Component {
           checked={checked}
           onChange={handleChange}
         />
+        <span className='t7-form__radio__fake' />
         {label}
       </label>
     )

@@ -5,8 +5,8 @@
   utils.ajax({
     host: 'https://api.example.com/',
     url: 'path/goes/here',
-    success: function (response) {
-      // Do something with `response`.
+    success: function (json) {
+      // Do something with `json`.
     },
     error: function (response) {
       // Do something with `response`.
@@ -114,15 +114,15 @@ function ajax (o) {
   })
 
   // Use JSON data.
-  .then(function (data) {
+  .then(function (json) {
     // If no data, exit.
-    if (!data) {
+    if (!json) {
       return
     }
 
     // Success callback?
     if (typeof success === 'function') {
-      success(data)
+      success(json)
     }
   })
 

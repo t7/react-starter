@@ -34,7 +34,10 @@ class AppHeader extends React.Component {
 
           </Grid>
 
-          <Grid desktop='50' tablet='50'>
+          <Grid
+            desktop='50'
+            tablet='50'
+          >
 
             <ListSeparator>
 
@@ -54,7 +57,10 @@ class AppHeader extends React.Component {
 
           </Grid>
 
-          <Grid desktop='25' tablet='25'>
+          <Grid
+            desktop='25'
+            tablet='25'
+          >
 
             <Search />
 
