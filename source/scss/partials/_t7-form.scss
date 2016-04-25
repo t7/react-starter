@@ -139,7 +139,9 @@ Shared styles.
 .t7-form__textarea:not([disabled]):active,
 .t7-form__input:not([disabled]):focus,
 .t7-form__select:not([disabled]):focus,
-.t7-form__textarea:not([disabled]):focus {
+.t7-form__textarea:not([disabled]):focus,
+.t7-form__radio:not([disabled]):focus + .t7-form__radio__fake,
+.t7-form__checkbox:not([disabled]):focus + .t7-form__checkbox__fake {
   border-color: #39f;
   box-shadow: 0 0 2px 0 #39f;
 }
@@ -367,13 +369,6 @@ Button mode.
 .t7-form__radio[disabled] + .t7-form__radio__fake,
 .t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
   background-color: #eee;
-}
-
-// Focus state.
-.t7-form__radio:not([disabled]):focus + .t7-form__radio__fake,
-.t7-form__checkbox:not([disabled]):focus + .t7-form__checkbox__fake {
-  border-color: #39f;
-  box-shadow: 0 0 2px 0 #39f;
 }
 
 /*
