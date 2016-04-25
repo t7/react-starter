@@ -382,6 +382,22 @@ ul[class*="t7-list-inline"] li + li .t7-form__checkbox {
 }
 
 /*
+Disallow selection.
+============================================================
+*/
+
+.t7-form__radio__label,
+.t7-form__checkbox__label,
+.t7-form__checkbox[disabled],
+.t7-form__radio[disabled],
+.t7-form__button[disabled],
+.t7-form__input[disabled],
+.t7-form__select[disabled],
+.t7-form__textarea[disabled] {
+  user-select: none;
+}
+
+/*
 Disabled state.
 ============================================================
 */
@@ -394,11 +410,6 @@ Disabled state.
 .t7-form__textarea[disabled],
 .t7-form__radio[disabled] + .t7-form__radio__fake,
 .t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
-  -moz-user-select: -moz-none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  user-select: none;
   cursor: not-allowed;
-
   opacity: 0.5;
 }
