@@ -147,6 +147,24 @@ li {
   display: list-item;
 }
 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /*
+    Block level HTML5 tags.
+  */
+  display: block;
+}
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
