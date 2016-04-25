@@ -336,11 +336,11 @@ Button mode.
 
   margin-right: 7px;
 
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 
   position: relative;
-  top: -1px;
+  top: -2px;
 
   transition: background-size 150ms;
 }
@@ -357,12 +357,12 @@ Button mode.
 
 // Checked: radio.
 .t7-form__radio:checked + .t7-form__radio__fake {
-  background-size: 10px 10px;
+  background-size: 8px 8px;
 }
 
 // Checked: checkbox.
 .t7-form__checkbox:checked + .t7-form__checkbox__fake {
-  background-size: 12px 12px;
+  background-size: 10px 8px;
 }
 
 // Disabled state.
