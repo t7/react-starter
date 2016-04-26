@@ -79,7 +79,7 @@ function ajax (o) {
     mode: 'cors'
   }
 
-  // Is it a POST/PUT?
+  // Is it a post?
   if (method === 'POST' || method === 'PUT') {
     options.body = JSON.stringify(params)
   }
@@ -102,8 +102,20 @@ function ajax (o) {
 
     const status = response.status
 
+    /*
+      Check for "successful" status codes.
+
+      https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+    */
+    const isValid = (
+      status === 200 ||
+      status === 201 ||
+      status === 202 ||
+      status === 203
+    )
+
     // All good?
-    if (status === 200) {
+    if (isValid) {
       // Convert JSON.
       return response.json()
 
