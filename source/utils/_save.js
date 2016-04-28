@@ -1,7 +1,13 @@
 /*
+
   This method allows you to save data as a `console.json`
   file, when perusing a large JSON object via console.log
   would be too time consuming and/or laborious. Enjoy! :)
+
+  // Called like so…
+
+  utils.save(json, 'my_file_name.json')
+
 */
 function save (data, filename) {
   // File blob.
