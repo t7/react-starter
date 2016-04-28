@@ -436,20 +436,22 @@ class Page extends React.Component {
 
                 <RadioListInline
                   handleChange={handleFormChange}
-                  options={[
-                    {
-                      checked: input_combat_training[0].checked,
-                      label: 'Yes',
-                      value: 'yes',
-                      name: 'input_combat_training'
-                    },
-                    {
-                      checked: input_combat_training[1].checked,
-                      label: 'No',
-                      value: 'no',
-                      name: 'input_combat_training'
-                    }
-                  ]}
+                  options={
+                    [
+                      {
+                        checked: input_combat_training[0].checked,
+                        label: 'Yes',
+                        value: 'yes',
+                        name: 'input_combat_training'
+                      },
+                      {
+                        checked: input_combat_training[1].checked,
+                        label: 'No',
+                        value: 'no',
+                        name: 'input_combat_training'
+                      }
+                    ]
+                  }
                 />
 
                 <hr />
@@ -460,20 +462,22 @@ class Page extends React.Component {
 
                 <RadioListInline
                   handleChange={handleFormChange}
-                  options={[
-                    {
-                      checked: input_license_to_kill[0].checked,
-                      label: 'Yes',
-                      value: 'yes',
-                      name: 'input_license_to_kill'
-                    },
-                    {
-                      checked: input_license_to_kill[1].checked,
-                      label: 'No',
-                      value: 'no',
-                      name: 'input_license_to_kill'
-                    }
-                  ]}
+                  options={
+                    [
+                      {
+                        checked: input_license_to_kill[0].checked,
+                        label: 'Yes',
+                        value: 'yes',
+                        name: 'input_license_to_kill'
+                      },
+                      {
+                        checked: input_license_to_kill[1].checked,
+                        label: 'No',
+                        value: 'no',
+                        name: 'input_license_to_kill'
+                      }
+                    ]
+                  }
                 />
 
               </Fieldset>

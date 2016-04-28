@@ -319,6 +319,12 @@ Button mode.
 
 .t7-form__radio__label,
 .t7-form__checkbox__label {
+  display: inline-block;
+
+  margin: -2px;
+  padding: 2px;
+  padding-left: 27px;
+
   position: relative;
   overflow: hidden;
 }
@@ -331,16 +337,14 @@ Button mode.
   background-repeat: no-repeat;
 
   border: 1px solid #999;
-  display: inline-block;
-  vertical-align: middle;
-
-  margin-right: 7px;
 
   width: 18px;
   height: 18px;
 
-  position: relative;
-  top: -2px;
+  margin-top: -9px;
+  position: absolute;
+  top: 50%;
+  left: 2px;
 
   transition: background-size 150ms;
 }
@@ -369,16 +373,6 @@ Button mode.
 .t7-form__radio[disabled] + .t7-form__radio__fake,
 .t7-form__checkbox[disabled] + .t7-form__checkbox__fake {
   background-color: #eee;
-}
-
-/*
-Lists: checkbox, radio.
-============================================================
-*/
-
-ul[class*="t7-list-inline"] li + li .t7-form__radio,
-ul[class*="t7-list-inline"] li + li .t7-form__checkbox {
-  margin-left: 10px;
 }
 
 /*
