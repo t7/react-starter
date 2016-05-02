@@ -2,6 +2,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Grid, GridClear, GridContainer, GridOffset } from 'unsemantic'
 
 // ======
 // Redux.
@@ -15,12 +16,6 @@ import utils from '../../utils'
 
 // Layout components.
 import App from '../../layouts/app'
-
-// Misc components.
-import Clear from '../../components_misc/unsemantic/grid_clear'
-import Grid from '../../components_misc/unsemantic/grid_unit'
-import GridOffset from '../../components_misc/unsemantic/grid_offset'
-import GridContainer from '../../components_misc/unsemantic/grid_container'
 
 // UI components.
 import BoxInfo from '../../components/box_info'
@@ -228,7 +223,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Clear />
+                  <GridClear />
 
                   <Grid desktop='25' tablet='25'>
                     <p>
@@ -351,7 +346,7 @@ class Page extends React.Component {
                     </p>
                   </Grid>
 
-                  <Clear />
+                  <GridClear />
 
                   <Grid desktop='40' tablet='40'>
                     <p>

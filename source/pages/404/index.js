@@ -1,5 +1,6 @@
 // Dependencies.
 import React from 'react'
+import { Grid, GridContainer } from 'unsemantic'
 
 // Utility methods.
 import utils from '../../utils'
@@ -9,8 +10,6 @@ import App from '../../layouts/app'
 
 // Misc components.
 import Markdown from '../../components_misc/markdown/text'
-import Grid from '../../components_misc/unsemantic/grid_unit'
-import GridContainer from '../../components_misc/unsemantic/grid_container'
 
 // Define class.
 class Page extends React.Component {

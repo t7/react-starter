@@ -1,13 +1,10 @@
 // Dependencies.
 import React from 'react'
 import { Link } from 'react-router'
-
-// Misc components.
-import Grid from '../../components_misc/unsemantic/grid_unit'
-import GridContainer from '../../components_misc/unsemantic/grid_container'
-import ListSeparator from '../../components/list_separator'
+import { Grid, GridContainer } from 'unsemantic'
 
 // UI components.
+import ListSeparator from '../../components/list_separator'
 import Search from '../../components/form_search'
 
 // Define class.

@@ -2,6 +2,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { Grid, GridContainer, GridOffset } from 'unsemantic'
 
 // ======
 // Redux.
@@ -24,11 +25,6 @@ import App from '../../layouts/app'
 
 // Utility methods.
 import utils from '../../utils'
-
-// Misc components.
-import Grid from '../../components_misc/unsemantic/grid_unit'
-import GridOffset from '../../components_misc/unsemantic/grid_offset'
-import GridContainer from '../../components_misc/unsemantic/grid_container'
 
 // UI components.
 import AccordionMulti from '../../components/accordion_multi'

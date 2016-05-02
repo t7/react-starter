@@ -1,10 +1,6 @@
 // Dependencies.
 import React from 'react'
-
-// Misc components.
-import Clear from '../../components_misc/unsemantic/grid_clear'
-import Grid from '../../components_misc/unsemantic/grid_unit'
-import GridContainer from '../../components_misc/unsemantic/grid_container'
+import { Grid, GridClear, GridContainer } from 'unsemantic'
 
 // Define class.
 class AppFooter extends React.Component {
@@ -69,7 +65,7 @@ class AppFooter extends React.Component {
             </dl>
           </Grid>
 
-          <Clear
+          <GridClear
             desktop-hide // true
             tablet-hide // true
           />
