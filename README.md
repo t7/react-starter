@@ -24,6 +24,11 @@ To run unit tests on the React components…
 1. `cd` into the local directory.
 2. Type `npm run test`
 
+After the tests run, assuming everything is successful, you can view reports related to JS and CSS here…
+
+* JS — `/coverage/lcov-report/index.html`
+* CSS — `/sass-lint.html`
+
 ---
 
 To build the starter app to static files…
