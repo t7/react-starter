@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 // CSS.
-import './scss/index.scss'
+import './sass/index.scss'
 
 // Routes.
 import routes from './routes'
