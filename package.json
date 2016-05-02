@@ -1,6 +1,10 @@
 {
   "description": "T7 React starter project",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t7/react-starter.git"
+  },
   "babel": {
     "presets": [
       "react",
@@ -73,9 +77,9 @@
     "postcss": "^5.0.19",
     "postcss-loader": "^0.8.2",
     "raw-loader": "^0.5.1",
-    "react": "^15.0.1",
-    "react-addons-test-utils": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.0.2",
+    "react-addons-test-utils": "^15.0.2",
+    "react-dom": "^15.0.2",
     "react-hot-loader": "^1.3.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.2.4",
