@@ -14,11 +14,18 @@ class Input extends React.Component {
     this.defaultState()
   }
 
-  // Set state.
+  // Set default state.
   defaultState () {
+    var value = this.props.value
+
+    // Ensure a real value.
+    if (!utils.exists(value)) {
+      value = this.props.defaultValue || undefined
+    }
+
     this.state = {
       id: this.props.id || utils.unique(),
-      value: this.props.value || this.props.defaultValue
+      value: value
     }
   }
 

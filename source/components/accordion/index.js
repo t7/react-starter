@@ -19,7 +19,7 @@ class Accordion extends React.Component {
     this.defaultState()
   }
 
-  // Set state.
+  // Set default state.
   defaultState () {
     this.state = {
       id: this.props.id || utils.unique(),

@@ -82,7 +82,7 @@ if (process.env.BABEL_ENV === 'production') {
   plugins.push(
     new CopyWebpackPlugin([
       {
-        // Input: "./source/static".
+        // Input: "/source/static".
         from: './source/static',
 
         // Output: "/build/static".
