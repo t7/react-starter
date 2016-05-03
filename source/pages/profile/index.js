@@ -98,23 +98,23 @@ class Page extends React.Component {
     const g = utils.getDataByName
 
     // Field values.
-    const input_first_name = g(d, 'input_first_name')
-    const input_middle_initial = g(d, 'input_middle_initial')
-    const input_last_name = g(d, 'input_last_name')
-    const input_birth_date = g(d, 'input_birth_date')
-    const input_ssn = g(d, 'input_ssn')
-    const input_email = g(d, 'input_email')
-    const input_phone = g(d, 'input_phone')
-    const input_address_1 = g(d, 'input_address_1')
-    const input_address_2 = g(d, 'input_address_2')
-    const input_city = g(d, 'input_city')
-    const input_state = g(d, 'input_state')
-    const input_zip = g(d, 'input_zip')
-    const input_allergies = g(d, 'input_allergies')
-    const input_combat_training = g(d, 'input_combat_training')
-    const input_license_to_kill = g(d, 'input_license_to_kill')
-    const input_farewell = g(d, 'input_farewell')
-    const input_agree_to_terms = g(d, 'input_agree_to_terms')
+    const inputFirstName = g(d, 'inputFirstName')
+    const inputMiddleInitial = g(d, 'inputMiddleInitial')
+    const inputLastName = g(d, 'inputLastName')
+    const inputBirthDate = g(d, 'inputBirthDate')
+    const inputSsn = g(d, 'inputSsn')
+    const inputEmail = g(d, 'inputEmail')
+    const inputPhone = g(d, 'inputPhone')
+    const inputAddress1 = g(d, 'inputAddress1')
+    const inputAddress2 = g(d, 'inputAddress2')
+    const inputCity = g(d, 'inputCity')
+    const inputState = g(d, 'inputState')
+    const inputZip = g(d, 'inputZip')
+    const inputAllergies = g(d, 'inputAllergies')
+    const inputCombatTraining = g(d, 'inputCombatTraining')
+    const inputLicenseToKill = g(d, 'inputLicenseToKill')
+    const inputFarewell = g(d, 'inputFarewell')
+    const inputAgreeToTerms = g(d, 'inputAgreeToTerms')
 
     // Expose UI.
     return (
@@ -176,15 +176,15 @@ class Page extends React.Component {
 
                   <Grid desktop='45' tablet='45'>
                     <p>
-                      <label htmlFor='input_first_name'>
+                      <label htmlFor='inputFirstName'>
                         First Name
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_first_name'
-                        defaultValue={input_first_name.value}
+                        id='inputFirstName'
+                        defaultValue={inputFirstName.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -192,15 +192,15 @@ class Page extends React.Component {
 
                   <Grid desktop='10' tablet='10'>
                     <p>
-                      <label htmlFor='input_middle_initial'>
+                      <label htmlFor='inputMiddleInitial'>
                         <abbr title='Middle Initial'>
                           M.I.
                         </abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_middle_initial'
-                        defaultValue={input_middle_initial.value}
+                        id='inputMiddleInitial'
+                        defaultValue={inputMiddleInitial.value}
                         maxlength='1'
                         handleChange={handleFormChange}
                       />
@@ -209,15 +209,15 @@ class Page extends React.Component {
 
                   <Grid desktop='45' tablet='45'>
                     <p>
-                      <label htmlFor='input_last_name'>
+                      <label htmlFor='inputLastName'>
                         Last Name
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_last_name'
-                        defaultValue={input_last_name.value}
+                        id='inputLastName'
+                        defaultValue={inputLastName.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -227,15 +227,15 @@ class Page extends React.Component {
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='input_birth_date'>
+                      <label htmlFor='inputBirthDate'>
                         Birth Date
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_birth_date'
-                        defaultValue={input_birth_date.value}
+                        id='inputBirthDate'
+                        defaultValue={inputBirthDate.value}
                         placeholder='MM/DD/YYYY'
                         maxlength='10'
                         handleChange={handleFormChange}
@@ -245,7 +245,7 @@ class Page extends React.Component {
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='input_ssn'>
+                      <label htmlFor='inputSsn'>
                         <abbr title='Social Security Number'>
                           SSN
 
@@ -254,8 +254,8 @@ class Page extends React.Component {
                       </label>
                       <br />
                       <Input
-                        id='input_ssn'
-                        defaultValue={input_ssn.value}
+                        id='inputSsn'
+                        defaultValue={inputSsn.value}
                         placeholder='000-00-0000'
                         maxlength='11'
                         handleChange={handleFormChange}
@@ -265,15 +265,15 @@ class Page extends React.Component {
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='input_email'>
+                      <label htmlFor='inputEmail'>
                         Email
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_email'
-                        defaultValue={input_email.value}
+                        id='inputEmail'
+                        defaultValue={inputEmail.value}
                         placeholder='name@example.com'
                         handleChange={handleFormChange}
                       />
@@ -282,15 +282,15 @@ class Page extends React.Component {
 
                   <Grid desktop='25' tablet='25'>
                     <p>
-                      <label htmlFor='input_phone'>
+                      <label htmlFor='inputPhone'>
                         Phone
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_phone'
-                        defaultValue={input_phone.value}
+                        id='inputPhone'
+                        defaultValue={inputPhone.value}
                         placeholder='000-000-0000'
                         maxlength='12'
                         handleChange={handleFormChange}
@@ -318,15 +318,15 @@ class Page extends React.Component {
 
                   <Grid desktop='50' tablet='50'>
                     <p>
-                      <label htmlFor='input_address_1'>
+                      <label htmlFor='inputAddress1'>
                         Street Address
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_address_1'
-                        defaultValue={input_address_1.value}
+                        id='inputAddress1'
+                        defaultValue={inputAddress1.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -334,13 +334,13 @@ class Page extends React.Component {
 
                   <Grid desktop='50' tablet='50'>
                     <p>
-                      <label htmlFor='input_address_2'>
+                      <label htmlFor='inputAddress2'>
                         Address Line 2
                       </label>
                       <br />
                       <Input
-                        id='input_address_2'
-                        defaultValue={input_address_2.value}
+                        id='inputAddress2'
+                        defaultValue={inputAddress2.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -350,15 +350,15 @@ class Page extends React.Component {
 
                   <Grid desktop='40' tablet='40'>
                     <p>
-                      <label htmlFor='input_city'>
+                      <label htmlFor='inputCity'>
                         City
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_city'
-                        defaultValue={input_city.value}
+                        id='inputCity'
+                        defaultValue={inputCity.value}
                         handleChange={handleFormChange}
                       />
                     </p>
@@ -366,15 +366,15 @@ class Page extends React.Component {
 
                   <Grid desktop='40' tablet='40'>
                     <p>
-                      <label htmlFor='input_state'>
+                      <label htmlFor='inputState'>
                         State
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Select
-                        id='input_state'
-                        defaultValue={input_state.value}
+                        id='inputState'
+                        defaultValue={inputState.value}
                         options={statesData}
                         handleChange={handleFormChange}
                       />
@@ -383,15 +383,15 @@ class Page extends React.Component {
 
                   <Grid desktop='20' tablet='20'>
                     <p>
-                      <label htmlFor='input_zip'>
+                      <label htmlFor='inputZip'>
                         Zip Code
 
                         <abbr title='Required'>*</abbr>
                       </label>
                       <br />
                       <Input
-                        id='input_zip'
-                        defaultValue={input_zip.value}
+                        id='inputZip'
+                        defaultValue={inputZip.value}
                         placeholder='00000'
                         maxlength='5'
                         handleChange={handleFormChange}
@@ -411,13 +411,13 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='input_allergies'>
+                <label htmlFor='inputAllergies'>
                   Allergies & Contagions
                 </label>
                 <br />
                 <Textdiv
-                  id='input_allergies'
-                  defaultValue={input_allergies.value}
+                  id='inputAllergies'
+                  defaultValue={inputAllergies.value}
                   handleChange={handleFormChange}
                 />
 
@@ -434,16 +434,16 @@ class Page extends React.Component {
                   options={
                     [
                       {
-                        checked: input_combat_training[0].checked,
+                        checked: inputCombatTraining[0].checked,
                         label: 'Yes',
                         value: 'yes',
-                        name: 'input_combat_training'
+                        name: 'inputCombatTraining'
                       },
                       {
-                        checked: input_combat_training[1].checked,
+                        checked: inputCombatTraining[1].checked,
                         label: 'No',
                         value: 'no',
-                        name: 'input_combat_training'
+                        name: 'inputCombatTraining'
                       }
                     ]
                   }
@@ -460,16 +460,16 @@ class Page extends React.Component {
                   options={
                     [
                       {
-                        checked: input_license_to_kill[0].checked,
+                        checked: inputLicenseToKill[0].checked,
                         label: 'Yes',
                         value: 'yes',
-                        name: 'input_license_to_kill'
+                        name: 'inputLicenseToKill'
                       },
                       {
-                        checked: input_license_to_kill[1].checked,
+                        checked: inputLicenseToKill[1].checked,
                         label: 'No',
                         value: 'no',
-                        name: 'input_license_to_kill'
+                        name: 'inputLicenseToKill'
                       }
                     ]
                   }
@@ -485,13 +485,13 @@ class Page extends React.Component {
 
                 <hr />
 
-                <label htmlFor='input_farewell'>
+                <label htmlFor='inputFarewell'>
                   Final Message
                 </label>
                 <br />
                 <Textdiv
-                  id='input_farewell'
-                  defaultValue={input_farewell.value}
+                  id='inputFarewell'
+                  defaultValue={inputFarewell.value}
                   handleChange={handleFormChange}
                 />
 
@@ -505,8 +505,8 @@ class Page extends React.Component {
 
                 <p>
                   <Checkbox
-                    checked={input_agree_to_terms.checked}
-                    id='input_agree_to_terms'
+                    checked={inputAgreeToTerms.checked}
+                    id='inputAgreeToTerms'
                     label='I agree to these terms.'
                     handleChange={handleFormChange}
                   />

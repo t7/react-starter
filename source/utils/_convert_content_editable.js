@@ -5,9 +5,9 @@ function convertContentEditable (e) {
   const el = e.target
 
   // Check <tag> name.
-  const tag_name = el.tagName.toLowerCase()
-  const is_span = tag_name === 'span'
-  const is_div = tag_name === 'div'
+  const tagName = el.tagName.toLowerCase()
+  const isSpan = tagName === 'span'
+  const isDiv = tagName === 'div'
 
   // Get placeholder.
   var placeholder = el.getAttribute('placeholder')
@@ -17,31 +17,31 @@ function convertContentEditable (e) {
   // Used in conditional.
   var value
 
-  if (is_span) {
+  if (isSpan) {
     value = el.innerText
     value = value.trim()
     value = value.replace(/\s+/g, ' ')
-  } else if (is_div) {
+  } else if (isDiv) {
     value = el.innerHTML
     value = value.trim()
     value = utils.convertToText(value)
   }
 
   // Check event and key.
-  const is_blur = e.type === 'blur'
-  const is_enter = e.keyCode === 13
+  const isBlur = e.type === 'blur'
+  const isEnter = e.keyCode === 13
 
   // Flag for replacement.
-  const do_replace_inline = is_span && (is_blur || is_enter)
-  const do_replace_block = is_div && is_blur
+  const doReplaceInline = isSpan && (isBlur || isEnter)
+  const doReplaceBlock = isDiv && isBlur
 
   // Use placeholder, if no value.
   value = value || placeholder
 
   // Replace, if need be.
-  if (do_replace_inline) {
+  if (doReplaceInline) {
     el.innerHTML = value
-  } else if (do_replace_block) {
+  } else if (doReplaceBlock) {
     value = utils.convertToMarkup(value)
 
     el.innerHTML = value

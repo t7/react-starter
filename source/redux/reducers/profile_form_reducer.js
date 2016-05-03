@@ -12,83 +12,83 @@ if (!defaultState) {
   defaultState = {
     data: [
       {
-        name: 'input_first_name',
+        name: 'inputFirstName',
         value: 'Jonathan'
       },
       {
-        name: 'input_middle_initial',
+        name: 'inputMiddleInitial',
         value: 'W'
       },
       {
-        name: 'input_last_name',
+        name: 'inputLastName',
         value: 'Rogersonian'
       },
       {
-        name: 'input_birth_date',
+        name: 'inputBirthDate',
         value: '02/10/1990'
       },
       {
-        name: 'input_ssn',
+        name: 'inputSsn',
         value: '007-50-1337'
       },
       {
-        name: 'input_email',
+        name: 'inputEmail',
         value: 'jwr@example.com'
       },
       {
-        name: 'input_phone',
+        name: 'inputPhone',
         value: '555-867-5309'
       },
       {
-        name: 'input_address_1',
+        name: 'inputAddress1',
         value: '1234 Fifth Street'
       },
       {
-        name: 'input_address_2',
+        name: 'inputAddress2',
         value: 'Apartment B'
       },
       {
-        name: 'input_city',
+        name: 'inputCity',
         value: 'Beverly Hills'
       },
       {
-        name: 'input_state',
+        name: 'inputState',
         value: 'CA'
       },
       {
-        name: 'input_zip',
+        name: 'inputZip',
         value: '90210'
       },
       {
-        name: 'input_allergies',
+        name: 'inputAllergies',
         value: 'No food allergies, but I am deathly allergic to cats.'
       },
       {
-        name: 'input_combat_training',
+        name: 'inputCombatTraining',
         value: 'yes',
         checked: true
       },
       {
-        name: 'input_combat_training',
+        name: 'inputCombatTraining',
         value: 'no',
         checked: false
       },
       {
-        name: 'input_license_to_kill',
+        name: 'inputLicenseToKill',
         value: 'yes',
         checked: true
       },
       {
-        name: 'input_license_to_kill',
+        name: 'inputLicenseToKill',
         value: 'no',
         checked: false
       },
       {
-        name: 'input_farewell',
+        name: 'inputFarewell',
         value: 'Tell the commander that it *was* me who set fire to his car. Sorry! :)'
       },
       {
-        name: 'input_agree_to_terms',
+        name: 'inputAgreeToTerms',
         value: 'I agree to these terms.',
         checked: false
       }
