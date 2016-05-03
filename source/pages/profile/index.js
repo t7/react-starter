@@ -2,6 +2,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { isArray } from 'lodash'
 import { Grid, GridClear, GridContainer, GridOffset } from 'unsemantic'
 
 // ======
@@ -111,10 +112,48 @@ class Page extends React.Component {
     const inputState = g(d, 'inputState')
     const inputZip = g(d, 'inputZip')
     const inputAllergies = g(d, 'inputAllergies')
-    const inputCombatTraining = g(d, 'inputCombatTraining')
-    const inputLicenseToKill = g(d, 'inputLicenseToKill')
     const inputFarewell = g(d, 'inputFarewell')
     const inputAgreeToTerms = g(d, 'inputAgreeToTerms')
+
+    // ================================
+    // "Combat training" radio buttons.
+    // ================================
+
+    const inputCombatTraining = g(d, 'inputCombatTraining')
+
+    const validInputCombatTraining =
+      isArray(inputCombatTraining) &&
+      inputCombatTraining.length === 2
+
+    const inputCombatTraining0 =
+      validInputCombatTraining
+      ? inputCombatTraining[0].checked
+      : false
+
+    const inputCombatTraining1 =
+      validInputCombatTraining
+      ? inputCombatTraining[1].checked
+      : false
+
+    // ================================
+    // "License to kill" radio buttons.
+    // ================================
+
+    const inputLicenseToKill = g(d, 'inputLicenseToKill')
+
+    const validInputLicenseToKill =
+      isArray(inputLicenseToKill) &&
+      inputLicenseToKill.length === 2
+
+    const inputLicenseToKill0 =
+      validInputLicenseToKill
+      ? inputLicenseToKill[0].checked
+      : false
+
+    const inputLicenseToKill1 =
+      validInputLicenseToKill
+      ? inputLicenseToKill[1].checked
+      : false
 
     // Expose UI.
     return (
@@ -434,13 +473,13 @@ class Page extends React.Component {
                   options={
                     [
                       {
-                        checked: inputCombatTraining[0].checked,
+                        checked: inputCombatTraining0,
                         label: 'Yes',
                         value: 'yes',
                         name: 'inputCombatTraining'
                       },
                       {
-                        checked: inputCombatTraining[1].checked,
+                        checked: inputCombatTraining1,
                         label: 'No',
                         value: 'no',
                         name: 'inputCombatTraining'
@@ -460,13 +499,13 @@ class Page extends React.Component {
                   options={
                     [
                       {
-                        checked: inputLicenseToKill[0].checked,
+                        checked: inputLicenseToKill0,
                         label: 'Yes',
                         value: 'yes',
                         name: 'inputLicenseToKill'
                       },
                       {
-                        checked: inputLicenseToKill[1].checked,
+                        checked: inputLicenseToKill1,
                         label: 'No',
                         value: 'no',
                         name: 'inputLicenseToKill'
