@@ -18,8 +18,9 @@ class Select extends React.Component {
   defaultState () {
     var value = this.props.value
 
+    // Ensure a real value.
     if (!utils.exists(value)) {
-      value = this.props.defaultValue
+      value = this.props.defaultValue || ''
     }
 
     this.state = {
@@ -28,7 +29,7 @@ class Select extends React.Component {
     }
   }
 
-  // Override value.
+  // Force state change.
   componentWillReceiveProps (nextProps) {
     const newValue = nextProps.value
     const oldValue = this.props.value

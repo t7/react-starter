@@ -56,11 +56,9 @@ class Input extends React.Component {
     const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof handleChange !== 'function') {
-      return
+    if (typeof handleChange === 'function') {
+      handleChange(e, value)
     }
-
-    handleChange(e, value)
   }
 
   // When value changes.
@@ -74,12 +72,10 @@ class Input extends React.Component {
     const handleChange = this.props.handleChange
 
     // Exit, if no callback.
-    if (typeof handleChange !== 'function') {
-      return
+    if (typeof handleChange === 'function') {
+      value = utils.trim(value)
+      handleChange(e, value)
     }
-
-    value = utils.trim(value)
-    handleChange(e, value)
   }
 
   // Render method.
