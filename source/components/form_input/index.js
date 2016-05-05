@@ -20,7 +20,7 @@ class Input extends React.Component {
 
     // Ensure a real value.
     if (!utils.exists(value)) {
-      value = this.props.defaultValue || undefined
+      value = this.props.defaultValue || ''
     }
 
     this.state = {
