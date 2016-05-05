@@ -16,30 +16,56 @@ class Select extends React.Component {
 
   // Set default state.
   defaultState () {
+    var value = this.props.value
+
+    if (!utils.exists(value)) {
+      value = this.props.defaultValue
+    }
+
     this.state = {
-      id: this.props.id || utils.unique()
+      id: this.props.id || utils.unique(),
+      value: value
     }
   }
 
-  // When value changes.
+  // Override value.
+  componentWillReceiveProps (nextProps) {
+    const newValue = nextProps.value
+    const oldValue = this.props.value
+
+    const isValid =
+      utils.exists(newValue) &&
+      newValue !== oldValue
+
+    if (isValid) {
+      this.setState({
+        value: newValue
+      })
+    }
+  }
+
+  // Input value change.
   handleChange (e) {
+    const value = e.target.value
+
+    this.setState({
+      value: value
+    })
+
+    // Change callback.
     const handleChange = this.props.handleChange
 
-    // Exit, if no callback.
-    if (typeof handleChange !== 'function') {
-      return
+    // Does callback exist?
+    if (typeof handleChange === 'function') {
+      handleChange(e, value)
     }
-
-    const el = e.target
-    const value = utils.trim(el.value)
-
-    handleChange(e, value)
   }
 
   // Render method.
   render () {
     // State driven.
     const id = this.state.id
+    const value = this.state.value
 
     // Props driven.
     const autofocus = this.props.autofocus
@@ -47,26 +73,43 @@ class Select extends React.Component {
     const disabled = this.props.disabled
     const name = this.props.name || id
     const options = this.props.options
+    const readonly = this.props.readonly
     const required = this.props.required
     const width = this.props.width
-
-    // Control selected state.
-    const defaultValue = this.props.defaultValue
-    const value = this.props.value
 
     // Events.
     const handleChange = this.handleChange.bind(this)
 
-    var className = [
-      't7-form__select'
-    ]
+    // Default class="…".
+    var className = ['t7-form__select']
 
     if (width === 'auto') {
       className.push('t7-form__select--width-auto')
     }
 
+    // Convert to string.
     className = className.join(' ')
 
+    // Build list.
+    const listItems = options.map(function (o, i) {
+      const value =
+        utils.exists(o.value)
+        ? o.value
+        : o.id
+
+      const name = o.name
+
+      return (
+        <option
+          key={i}
+          value={value}
+        >
+          {name}
+        </option>
+      )
+    })
+
+    // Expose UI.
     return (
       <select
         aria-controls={ariaControls}
@@ -75,27 +118,14 @@ class Select extends React.Component {
         disabled={disabled}
         id={id}
         name={name}
+        readOnly={readonly}
         required={required}
 
-        defaultValue={defaultValue}
         value={value}
 
         onChange={handleChange}
       >
-        {
-          options.map(function (o, i) {
-            const value =
-              utils.exists(o.value)
-              ? o.value
-              : o.id
-
-            const name = o.name
-
-            return (
-              <option key={i} value={value}>{name}</option>
-            )
-          })
-        }
+        {listItems}
       </select>
     )
   }
@@ -109,6 +139,7 @@ Select.propTypes = {
   id: React.PropTypes.string,
   name: React.PropTypes.string,
   options: React.PropTypes.array,
+  readonly: React.PropTypes.bool,
   required: React.PropTypes.bool,
   width: React.PropTypes.string,
 
