@@ -17,22 +17,15 @@ class DropDown extends React.Component {
 
   // Set default state.
   defaultState () {
-    // Check if flag was passed.
-    var isActive = this.props.isActive
-
-    if (!utils.exists(isActive)) {
-      isActive = false
-    }
-
     const id = this.props.id || utils.unique()
     const idMenu = id + '_menu'
     const idTrigger = id + '_trigger'
+    const isActive = !!this.props.isActive
 
     this.state = {
-      isActive: isActive,
-      id: id,
       idMenu: idMenu,
-      idTrigger: idTrigger
+      idTrigger: idTrigger,
+      isActive: isActive
     }
   }
 
@@ -43,7 +36,7 @@ class DropDown extends React.Component {
     })
 
     // Place focus back on trigger.
-    this.refs[this.state.idTrigger].focus()
+    this.refs.trigger.focus()
 
     const handleClick = this.props.handleClick
 
@@ -75,8 +68,6 @@ class DropDown extends React.Component {
 
   // Handle `<body>` click.
   bodyClickHandler (e) {
-    const b = document.body
-    const f = this.bodyClickHandler.bind(this)
     const el = e.target
     const c = el.className || ''
 
@@ -88,7 +79,7 @@ class DropDown extends React.Component {
     const isDropdown = c.match('t7-dropdown')
 
     // Does component exist in page?
-    const componentParent = this.refs[this.state.id]
+    const componentParent = this.refs.dropdown
 
     // Set in conditional.
     var parent
@@ -109,12 +100,6 @@ class DropDown extends React.Component {
     // Ensure it's not the dropdown itself.
     const isValid = parent !== componentParent
 
-    // Un-bind events.
-    if (isValid || !componentParent) {
-      b.removeEventListener('mousedown', f)
-      b.removeEventListener('touchstart', f)
-    }
-
     // Change state.
     if (isValid && componentParent) {
       this.setState({
@@ -123,7 +108,7 @@ class DropDown extends React.Component {
     }
   }
 
-  // Wire up `<body>` click.
+  // Add `<body>` click listener.
   bodyClickListener (isActive) {
     const b = document.body
     const f = this.bodyClickHandler.bind(this)
@@ -139,13 +124,21 @@ class DropDown extends React.Component {
     }
   }
 
+  // Remove `<body>` click listener.
+  componentWillUnmount () {
+    const b = document.body
+    const f = this.bodyClickHandler.bind(this)
+
+    b.removeEventListener('mousedown', f)
+    b.removeEventListener('touchstart', f)
+  }
+
   // Render method.
   render () {
     // State driven.
-    const isActive = this.state.isActive
-    const id = this.state.id
     const idMenu = this.state.idMenu
     const idTrigger = this.state.idTrigger
+    const isActive = this.state.isActive
 
     // Props driven.
     const menuAlign = this.props.menuAlign
@@ -180,14 +173,13 @@ class DropDown extends React.Component {
     // Expose UI.
     return (
       <div
-        id={id}
-        ref={id}
+        ref='dropdown'
         className='t7-dropdown'
         data-menu-align={menuAlign}
       >
         <a
           id={idTrigger}
-          ref={idTrigger}
+          ref='trigger'
           aria-controls={idMenu}
 
           aria-expanded={isActive}
