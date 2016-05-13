@@ -11,6 +11,7 @@ import log from './_log'
 import markdown from './_markdown'
 import navigate from './_navigate'
 import parseFormData from './_parse_form_data'
+import path from './_path'
 import placeholder from './_placeholder'
 import regex from './_regex'
 import save from './_save'
@@ -35,6 +36,7 @@ const utils = {
   markdown,
   navigate,
   parseFormData,
+  path,
   placeholder,
   regex,
   save,
