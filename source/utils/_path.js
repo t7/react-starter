@@ -1,3 +1,20 @@
+/*
+  // Utilty method for generating React routes.
+
+  // Used like so...
+
+  const url = utils.path([
+    'users',
+    userId,
+    'item',
+    itemId
+  ])
+
+  // Which yields...
+
+  '#/users/123/item/456'
+*/
+
 // Dependencies.
 import { isArray } from 'lodash'
 
