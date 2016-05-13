@@ -6,13 +6,13 @@
   const url = utils.path([
     'users',
     userId,
-    'item',
+    'items',
     itemId
   ])
 
   // Which yields...
 
-  '#/users/123/item/456'
+  '#/users/123/items/456'
 */
 
 // Dependencies.
