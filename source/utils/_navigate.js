@@ -1,3 +1,20 @@
+/*
+  // Utilty method for navigating React routes.
+
+  // Used like so...
+
+  utils.navigate([
+    'users',
+    userId,
+    'item',
+    itemId
+  ])
+
+  // Which goes to...
+
+  '#/users/123/item/456'
+*/
+
 // Dependencies.
 import { isArray } from 'lodash'
 
