@@ -6,13 +6,13 @@
   utils.navigate([
     'users',
     userId,
-    'item',
+    'items',
     itemId
   ])
 
   // Which goes to...
 
-  '#/users/123/item/456'
+  '#/users/123/items/456'
 */
 
 // Dependencies.
