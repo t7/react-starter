@@ -18,9 +18,12 @@
 // Dependencies.
 import { isArray } from 'lodash'
 
+// Utility methods.
+import utils from '../utils'
+
 // Helper to generate "#" URL.
 function path (x) {
-  if (!x) {
+  if (!utils.exists(x)) {
     // Remove cache buster.
     return window.location.hash.split('?')[0]
   }
