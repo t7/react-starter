@@ -18,9 +18,12 @@
 // Dependencies.
 import { isArray } from 'lodash'
 
+// Utility methods.
+import utils from '../utils'
+
 // Helper for page navigation.
 function navigate (x) {
-  if (!x) {
+  if (!utils.exists(x)) {
     return
   }
 
