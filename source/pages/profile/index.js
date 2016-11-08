@@ -42,6 +42,9 @@ class Page extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Set page title.
     utils.title(props)
   }
@@ -91,8 +94,8 @@ class Page extends React.Component {
   // Render method.
   render () {
     // Events.
-    const handleFormChange = this.handleFormChange.bind(this)
-    const handleFormSubmit = this.handleFormSubmit.bind(this)
+    const handleFormChange = this.handleFormChange
+    const handleFormSubmit = this.handleFormSubmit
 
     // Redux.
     const d = this.props.profileFormReducer.data

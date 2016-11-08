@@ -1,8 +1,19 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class DataTableHeader extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
   handleSort (e) {
     const keyPress = e.keyCode
     const keyEnter = keyPress === 13
@@ -30,7 +41,7 @@ class DataTableHeader extends React.Component {
     const sortable = this.props.sortable
     const sortDirection = this.props.sortDirection
     const sortIndex = this.props.sortIndex
-    const handleSort = sortable ? this.handleSort.bind(this) : null
+    const handleSort = sortable ? this.handleSort : null
 
     let ariaSort
 

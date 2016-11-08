@@ -45,6 +45,9 @@ class Tabs extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -93,7 +96,7 @@ class Tabs extends React.Component {
     const selected = this.state.selected
 
     // Click event.
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     return (
       <div className='t7-tabs' id={id}>

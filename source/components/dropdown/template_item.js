@@ -1,8 +1,19 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class DropDownItem extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
   // Click handler.
   handleClick (e) {
     const keyPress = e.keyCode
@@ -29,7 +40,7 @@ class DropDownItem extends React.Component {
     const href = this.props.href
     const text = this.props.text
 
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     // Expose UI.
     return (

@@ -44,6 +44,9 @@ class Page extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Set page title.
     utils.title(props)
   }
@@ -153,22 +156,22 @@ class Page extends React.Component {
     // =======
 
     const handleClickFaqAccordion =
-      this.handleClickFaqAccordion.bind(this)
+      this.handleClickFaqAccordion
 
     const handleClickAccountsTabs =
-      this.handleClickAccountsTabs.bind(this)
+      this.handleClickAccountsTabs
 
     const handleSortCheckingTable =
-      this.handleSortCheckingTable.bind(this)
+      this.handleSortCheckingTable
 
     const handlePaginationCheckingTable =
-      this.handlePaginationCheckingTable.bind(this)
+      this.handlePaginationCheckingTable
 
     const handleSortSavingsTable =
-      this.handleSortSavingsTable.bind(this)
+      this.handleSortSavingsTable
 
     const handlePaginationSavingsTable =
-      this.handlePaginationSavingsTable.bind(this)
+      this.handlePaginationSavingsTable
 
     // Expose UI.
     return (

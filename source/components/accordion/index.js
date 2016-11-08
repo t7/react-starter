@@ -15,6 +15,9 @@ class Accordion extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -93,7 +96,7 @@ class Accordion extends React.Component {
     const multi = this.props.multi
 
     // Events.
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     // Populated in `map`.
     const output = []

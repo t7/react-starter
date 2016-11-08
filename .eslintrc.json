@@ -17,7 +17,6 @@
     "quote-props": [
       "error",
       "as-needed"
-    ],
-    "react/jsx-no-bind": 0
+    ]
   }
 }

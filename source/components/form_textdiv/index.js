@@ -10,6 +10,9 @@ class Textdiv extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -134,11 +137,11 @@ class Textdiv extends React.Component {
     value = utils.convertToMarkup(value)
 
     // Events.
-    const handleBlur = this.handleBlur.bind(this)
-    const handleChange = this.handleChange.bind(this)
-    const handleFocus = this.handleFocus.bind(this)
-    const handleKeyUp = this.handleKeyUp.bind(this)
-    const handlePaste = this.handlePaste.bind(this)
+    const handleBlur = this.handleBlur
+    const handleChange = this.handleChange
+    const handleFocus = this.handleFocus
+    const handleKeyUp = this.handleKeyUp
+    const handlePaste = this.handlePaste
 
     return (
       <div

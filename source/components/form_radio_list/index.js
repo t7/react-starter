@@ -16,6 +16,9 @@ class RadioList extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -55,7 +58,7 @@ class RadioList extends React.Component {
 
     // Events.
     const handleChange = this.props.handleChange
-    const setState = this.setState.bind(this)
+    const setState = this.setState
 
     // Build list.
     const listItems = options.map(function (o, i) {

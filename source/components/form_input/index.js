@@ -10,6 +10,9 @@ class Input extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -106,8 +109,8 @@ class Input extends React.Component {
     className = className.join(' ')
 
     // Events.
-    const handleBlur = this.handleBlur.bind(this)
-    const handleChange = this.handleChange.bind(this)
+    const handleBlur = this.handleBlur
+    const handleChange = this.handleChange
 
     return (
       <input

@@ -10,6 +10,9 @@ class Textarea extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -57,7 +60,7 @@ class Textarea extends React.Component {
     const value = this.props.value
 
     // Events.
-    const handleChange = this.handleChange.bind(this)
+    const handleChange = this.handleChange
 
     return (
       <textarea

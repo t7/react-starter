@@ -10,6 +10,15 @@ import Input from '../form_input'
 
 // Define class.
 class Search extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
+  // Submit event.
   handleSubmit (e) {
     utils.stop(e)
 
@@ -36,7 +45,7 @@ class Search extends React.Component {
     const placeholder = this.props.placeholder
 
     // Events.
-    const handleSubmit = this.handleSubmit.bind(this)
+    const handleSubmit = this.handleSubmit
 
     return (
       <form onSubmit={handleSubmit}>

@@ -1,5 +1,6 @@
 // Import individual files.
 import ajax from './_ajax'
+import bind from './_bind'
 import convertContentEditable from './_convert_content_editable'
 import convertContentFocus from './_convert_content_focus'
 import convertOnPaste from './_convert_on_paste'
@@ -25,6 +26,7 @@ import unique from './_unique'
 // Bundle up methods.
 const utils = {
   ajax,
+  bind,
   convertContentEditable,
   convertContentFocus,
   convertOnPaste,

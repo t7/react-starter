@@ -1,12 +1,23 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // UI components.
 import Button from '../form_button'
 import Select from '../form_select'
 
 // Define class.
 class DataTablePagination extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
   // Handle `button` clicks.
   handlePagination (e, page) {
     const handlePagination = this.props.handlePagination
@@ -49,7 +60,7 @@ class DataTablePagination extends React.Component {
     const pageTotal = this.props.pageTotal
 
     // Events.
-    const handlePagination = this.handlePagination.bind(this)
+    const handlePagination = this.handlePagination
 
     // Disable buttons?
     const disablePrev = pageCurrent === 0

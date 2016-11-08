@@ -1,8 +1,19 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class Button extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
   // Button click.
   handleClick (e) {
     /*
@@ -40,7 +51,7 @@ class Button extends React.Component {
     const type = this.props.type
 
     // Events.
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     // Link & ARIA?
     if (href && ariaControls) {

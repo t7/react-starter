@@ -11,6 +11,9 @@ class Box extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -85,7 +88,7 @@ class Box extends React.Component {
     }
 
     // Events.
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     // Used in conditional.
     let className = [

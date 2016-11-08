@@ -17,6 +17,9 @@ class DataTable extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Ensure columns exist.
     const columns = this.props.columns
 
@@ -168,9 +171,9 @@ class DataTable extends React.Component {
     const data = this.parseData(this.state.sortIndex)
 
     // Events.
-    const handleSort = this.handleSort.bind(this)
-    const handlePagination = this.handlePagination.bind(this)
-    const handleRowClick = this.handleRowClick.bind(this)
+    const handleSort = this.handleSort
+    const handlePagination = this.handlePagination
+    const handleRowClick = this.handleRowClick
 
     // Clickable row?
     const rowIsClickable =

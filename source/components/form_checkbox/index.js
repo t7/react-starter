@@ -10,6 +10,9 @@ class Checkbox extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -76,7 +79,7 @@ class Checkbox extends React.Component {
     const value = this.props.value || label
 
     // Events.
-    const handleChange = this.handleChange.bind(this)
+    const handleChange = this.handleChange
 
     return (
       <label

@@ -1,8 +1,19 @@
 // Dependencies.
 import React from 'react'
 
+// Utility methods.
+import utils from '../../utils'
+
 // Define class.
 class AccordionHeader extends React.Component {
+  constructor (props) {
+    // Pass `props` into scope.
+    super(props)
+
+    // Bind context.
+    utils.bind(this)
+  }
+
   // Click handler.
   handleClick (e) {
     const keyPress = e.keyCode
@@ -35,7 +46,7 @@ class AccordionHeader extends React.Component {
     const id = this.props.id
     const label = this.props.label
 
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     return (
       <dt

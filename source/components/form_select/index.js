@@ -10,6 +10,9 @@ class Select extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -79,7 +82,7 @@ class Select extends React.Component {
     const width = this.props.width
 
     // Events.
-    const handleChange = this.handleChange.bind(this)
+    const handleChange = this.handleChange
 
     // Default class="…".
     let className = ['t7-form__select']

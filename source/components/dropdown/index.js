@@ -11,6 +11,9 @@ class DropDown extends React.Component {
     // Pass `props` into scope.
     super(props)
 
+    // Bind context.
+    utils.bind(this)
+
     // Get default state.
     this.defaultState()
   }
@@ -111,7 +114,7 @@ class DropDown extends React.Component {
   // Add `<body>` click listener.
   bodyClickListener (isActive) {
     const b = document.body
-    const f = this.bodyClickHandler.bind(this)
+    const f = this.bodyClickHandler
 
     // Un-bind events.
     b.removeEventListener('mousedown', f)
@@ -127,7 +130,7 @@ class DropDown extends React.Component {
   // Remove `<body>` click listener.
   componentWillUnmount () {
     const b = document.body
-    const f = this.bodyClickHandler.bind(this)
+    const f = this.bodyClickHandler
 
     b.removeEventListener('mousedown', f)
     b.removeEventListener('touchstart', f)
@@ -145,10 +148,10 @@ class DropDown extends React.Component {
     const text = this.props.text
 
     // Toggle event.
-    const toggleClick = this.toggleClick.bind(this)
+    const toggleClick = this.toggleClick
 
     // Item click event.
-    const handleClick = this.handleClick.bind(this)
+    const handleClick = this.handleClick
 
     // Populated in loop.
     const listItems = []
