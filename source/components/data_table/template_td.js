@@ -26,11 +26,11 @@ class DataTableCell extends React.Component {
     const isCurrency = type === 'currency'
     const isDate = type === 'date'
 
-    var value = this.props.value
+    let value = this.props.value
     const isNegative = value < 0
 
     // Default class="…".
-    var className = ['t7-data-table__td']
+    let className = ['t7-data-table__td']
 
     // Nowrap?
     if (nowrap) {

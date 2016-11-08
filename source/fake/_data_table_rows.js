@@ -37,13 +37,13 @@ export default function (count, balance) {
 
   // Random currency.
   function generateCurrency (negative) {
-    var modifier = 1
+    let modifier = 1
 
     if (negative) {
       modifier = -1
     }
 
-    var num = Math.random()
+    let num = Math.random()
     num = num * 100
     num = num * modifier
 
@@ -63,17 +63,19 @@ export default function (count, balance) {
       ? 'Withdrawl'
       : 'Deposit'
 
+    balance += amount
+
     return {
       date: utils.today(-i),
       description: description,
       category: category,
       amount: amount,
-      balance: balance += amount
+      balance: balance
     }
   }
 
   // Used in loop.
-  var data = []
+  let data = []
 
   // Build data.
   for (let i = 0; i < count; i++) {

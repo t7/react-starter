@@ -16,7 +16,7 @@ class Input extends React.Component {
 
   // Set default state.
   defaultState () {
-    var value = this.props.value
+    let value = this.props.value
 
     // Ensure a real value.
     if (!utils.exists(value)) {
@@ -63,7 +63,7 @@ class Input extends React.Component {
 
   // When value changes.
   handleChange (e) {
-    var value = e.target.value
+    let value = e.target.value
 
     this.setState({
       value: value
@@ -97,7 +97,7 @@ class Input extends React.Component {
     const width = this.props.width
 
     // Default class name.
-    var className = ['t7-form__input']
+    let className = ['t7-form__input']
 
     if (width === 'auto') {
       className.push('t7-form__input--width-auto')

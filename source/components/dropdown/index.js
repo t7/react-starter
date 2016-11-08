@@ -82,7 +82,7 @@ class DropDown extends React.Component {
     const componentParent = this.refs.dropdown
 
     // Set in conditional.
-    var parent
+    let parent
 
     // Get parent.
     if (isLink) {

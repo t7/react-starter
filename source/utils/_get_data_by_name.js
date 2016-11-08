@@ -4,7 +4,7 @@
 */
 function getDataByName (data, name) {
   // Drill through data.
-  var o = data.filter(function (item) {
+  let o = data.filter(function (item) {
     return item.name === name
   })
 

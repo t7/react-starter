@@ -16,7 +16,7 @@ class Radio extends React.Component {
 
   // Set default state.
   defaultState () {
-    var checked = this.props.checked
+    let checked = this.props.checked
 
     // Ensure a real boolean.
     if (!utils.exists(checked)) {

@@ -32,7 +32,7 @@ class DataTableHeader extends React.Component {
     const sortIndex = this.props.sortIndex
     const handleSort = sortable ? this.handleSort.bind(this) : null
 
-    var ariaSort
+    let ariaSort
 
     if (index === sortIndex) {
       if (sortDirection === 'desc') {
@@ -43,7 +43,7 @@ class DataTableHeader extends React.Component {
     }
 
     // Default class="…".
-    var className = ['t7-data-table__th']
+    let className = ['t7-data-table__th']
 
     if (sortable) {
       className.push('t7-data-table__th--sortable')

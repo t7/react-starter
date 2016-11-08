@@ -15,7 +15,7 @@ function convertOnPaste (e) {
     window.setTimeout(function () {
       const el = e.target
 
-      var value
+      let value
       value = el.innerText
       value = value.trim()
       value = value.replace(/\s+/g, ' ')
@@ -25,7 +25,7 @@ function convertOnPaste (e) {
   }
 
   // Used in conditional.
-  var value
+  let value
 
   // For IE.
   if (window.clipboardData) {

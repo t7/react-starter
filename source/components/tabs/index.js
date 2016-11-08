@@ -135,7 +135,7 @@ class Tabs extends React.Component {
             const isActive = selected === i
 
             // Panel content.
-            var content = panel.props.children
+            let content = panel.props.children
 
             if (typeof content === 'string') {
               content = (

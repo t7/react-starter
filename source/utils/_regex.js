@@ -6,8 +6,8 @@ function regex (x) {
   }
 
   // Used later.
-  var arr
-  var value
+  let arr
+  let value
 
   // Is it an array?
   const isArray = typeof x === 'object' && x.length

@@ -2,5 +2,22 @@
   "extends": [
     "standard",
     "standard-react"
-  ]
+  ],
+  "rules": {
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "no-var": "error",
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+    "react/jsx-no-bind": 0
+  }
 }

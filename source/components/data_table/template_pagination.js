@@ -56,8 +56,8 @@ class DataTablePagination extends React.Component {
     const disableNext = pageCurrent === pageTotal - 1
 
     // Button data.
-    var buttonDataPrev = pageCurrent - 1
-    var buttonDataNext = pageCurrent + 1
+    let buttonDataPrev = pageCurrent - 1
+    let buttonDataNext = pageCurrent + 1
 
     // Too low?
     if (buttonDataPrev < 0) {
@@ -70,7 +70,7 @@ class DataTablePagination extends React.Component {
     }
 
     // Build `<select>` options.
-    var selectOptions = []
+    let selectOptions = []
 
     for (let i = 0; i < pageTotal; i++) {
       selectOptions.push({
@@ -80,8 +80,8 @@ class DataTablePagination extends React.Component {
     }
 
     // Hide initially.
-    var ariaHidden = true
-    var className = 't7-data-table__pagination--hidden'
+    let ariaHidden = true
+    let className = 't7-data-table__pagination--hidden'
 
     // Show the UI?
     if (pageTotal > 1) {

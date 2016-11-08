@@ -1,10 +1,13 @@
+// Strict mode.
+'use strict'
+
 // Dependencies.
-var autoprefixer = require('autoprefixer')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var path = require('path')
-var webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
 // ================ //
 // ================ //
@@ -12,7 +15,7 @@ var webpack = require('webpack')
 // ================ //
 // ================ //
 
-var plugins = [
+const plugins = [
   // Generate "index.html" file.
   new HtmlWebpackPlugin({
     template: './source/index.html',
@@ -37,9 +40,9 @@ var plugins = [
     https://github.com/github/fetch
   */
   new webpack.ProvidePlugin({
-    'Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
+    Promise: 'imports?this=>global!exports?global.Promise!es6-promise',
     'window.Promise': 'imports?this=>global!exports?global.Promise!es6-promise',
-    'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+    fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
     'window.fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
   }),
 
@@ -100,7 +103,7 @@ if (process.env.BABEL_ENV === 'production') {
 
 // Determine *.scss loader.
 function sassLoader () {
-  var x = 'style!css?-url!postcss!sass'
+  let x = 'style!css?-url!postcss!sass'
 
   if (process.env.BABEL_ENV === 'production') {
     x = ExtractTextPlugin.extract('style', 'css?-url&minimize!postcss!sass')
@@ -109,7 +112,7 @@ function sassLoader () {
   return x
 }
 
-var loaders = [
+const loaders = [
   // JSON.
   {
     test: /\.json$/,

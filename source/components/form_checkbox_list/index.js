@@ -14,7 +14,7 @@ class CheckboxList extends React.Component {
     const options = this.props.options
 
     // Used in conditional.
-    var List = ListClean
+    let List = ListClean
 
     if (inline) {
       List = ListInline

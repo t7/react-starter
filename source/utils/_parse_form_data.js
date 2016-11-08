@@ -29,7 +29,7 @@ function parseFormData (form) {
     const isTextdiv = el.getAttribute('contenteditable')
 
     // Set in conditional.
-    var value
+    let value
 
     // If it's a <Textdiv>, treat differently.
     if (isTextdiv) {

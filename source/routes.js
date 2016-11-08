@@ -1,15 +1,20 @@
 // Dependencies.
 import React from 'react'
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, useRouterHistory } from 'react-router'
+import { createHashHistory } from 'history'
 
 // Pages.
 import Accounts from './pages/accounts'
 import Profile from './pages/profile'
 import NotFound from './pages/404'
 
+// History tracking.
+const history =
+useRouterHistory(createHashHistory)({queryKey: false})
+
 // Match routes to pages.
 const routes = (
-  <Router history={hashHistory}>
+  <Router history={history}>
 
     <Route
       path='/'

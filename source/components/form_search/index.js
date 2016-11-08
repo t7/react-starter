@@ -23,7 +23,7 @@ class Search extends React.Component {
     const el = e.target
     const input = el.querySelector('input[type="search"]')
 
-    var value = input.value
+    let value = input.value
     value = value.trim().replace(/\s+/g, ' ')
 
     handleSubmit(e, value)

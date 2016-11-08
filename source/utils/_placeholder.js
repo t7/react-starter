@@ -3,12 +3,12 @@ function placeholder (e) {
   const el = e.target
 
   // Get placeholder.
-  var placeholder = el.getAttribute('placeholder')
+  let placeholder = el.getAttribute('placeholder')
   placeholder = placeholder.trim()
   placeholder = placeholder.replace(/\s+/g, ' ')
 
   // Get value.
-  var value = el.innerHTML
+  let value = el.innerHTML
   value = value.trim()
   value = value.replace(/\s+/g, ' ')
 

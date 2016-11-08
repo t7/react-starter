@@ -5,7 +5,7 @@ import utils from '../../utils'
 import * as types from '../_types'
 
 // Default.
-var defaultState = utils.storage.get('faqAccordionReducer')
+let defaultState = utils.storage.get('faqAccordionReducer')
 
 // Default.
 if (!defaultState) {

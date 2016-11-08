@@ -54,7 +54,7 @@ class DataTable extends React.Component {
   // Parse based on sort, pagination.
   parseData (index) {
     // Used in conditional.
-    var data = cloneDeep(this.props.data)
+    let data = cloneDeep(this.props.data)
 
     // Ensure index exists.
     if (utils.exists(index)) {
@@ -177,8 +177,8 @@ class DataTable extends React.Component {
       typeof this.props.handleRowClick === 'function'
 
     // Pagination.
-    var pageTop
-    var pageBottom
+    let pageTop
+    let pageBottom
 
     // Is `pageTop` enabled?
     if (this.props.pageTop) {
@@ -205,7 +205,7 @@ class DataTable extends React.Component {
     }
 
     // Populate table rows.
-    var rows = data.map(function (data, i) {
+    let rows = data.map(function (data, i) {
       return (
         <DataTableRow
           dateFormat={dateFormat}

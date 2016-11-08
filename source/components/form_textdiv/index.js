@@ -103,7 +103,7 @@ class Textdiv extends React.Component {
     }
 
     const placeholder = this.props.placeholder
-    var value = utils.convertToText(e.target.innerHTML)
+    let value = utils.convertToText(e.target.innerHTML)
 
     if (value === placeholder) {
       value = ''
@@ -125,7 +125,7 @@ class Textdiv extends React.Component {
     const placeholder = this.props.placeholder
     const required = this.props.required
 
-    var value = this.state.value
+    let value = this.state.value
 
     if (!value && placeholder) {
       value = placeholder

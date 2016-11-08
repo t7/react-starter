@@ -8,7 +8,7 @@ import fake from '../../fake'
 import * as types from '../_types'
 
 // Get cache..
-var defaultState = utils.storage.get('savingsTableReducer')
+let defaultState = utils.storage.get('savingsTableReducer')
 
 // Default.
 if (!defaultState) {

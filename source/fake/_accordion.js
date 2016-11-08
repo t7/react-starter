@@ -6,7 +6,7 @@ import AccordionPanel from '../components/accordion/template_panel'
 export default function (count) {
   count = count || 3
 
-  var panels = []
+  let panels = []
 
   for (let i = 0; i < count; i++) {
     let label = 'Item ' + (i + 1)

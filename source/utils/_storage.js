@@ -4,11 +4,11 @@
 
 const flag = (function () {
   // Assume no support.
-  var bool = false
+  let bool = false
 
   // Used in the `try`.
-  var key = 'TEST_KEY'
-  var val = 'TEST_VAL'
+  let key = 'TEST_KEY'
+  let val = 'TEST_VAL'
 
   // Rigorously test for support.
   try {
@@ -55,7 +55,7 @@ function clear (key) {
 // ==============
 
 function get (key) {
-  var data = cache[key]
+  let data = cache[key]
 
   // Exit, if no data.
   if (!data) {

@@ -5,7 +5,7 @@ import utils from '../../utils'
 import * as types from '../_types'
 
 // Get cache..
-var defaultState = utils.storage.get('profileFormReducer')
+let defaultState = utils.storage.get('profileFormReducer')
 
 // Default.
 if (!defaultState) {

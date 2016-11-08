@@ -5,7 +5,7 @@ import utils from '../../utils'
 import * as types from '../_types'
 
 // Default.
-var defaultState = utils.storage.get('accountsTabsReducer')
+let defaultState = utils.storage.get('accountsTabsReducer')
 
 // Default.
 if (!defaultState) {

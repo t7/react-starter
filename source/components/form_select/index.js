@@ -16,7 +16,7 @@ class Select extends React.Component {
 
   // Set default state.
   defaultState () {
-    var value = this.props.value
+    let value = this.props.value
 
     // Ensure a real value.
     if (!utils.exists(value)) {
@@ -82,7 +82,7 @@ class Select extends React.Component {
     const handleChange = this.handleChange.bind(this)
 
     // Default class="…".
-    var className = ['t7-form__select']
+    let className = ['t7-form__select']
 
     if (width === 'auto') {
       className.push('t7-form__select--width-auto')

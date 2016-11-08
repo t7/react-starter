@@ -6,12 +6,12 @@ function convertContentFocus (e) {
   const el = e.target
 
   // Get placeholder.
-  var placeholder = el.getAttribute('placeholder')
+  let placeholder = el.getAttribute('placeholder')
   placeholder = utils.trim(placeholder)
   placeholder = placeholder.replace(/\s+/g, ' ')
 
   // Get value.
-  var value = el.innerHTML
+  let value = el.innerHTML
   value = utils.trim(value)
   value = value.replace(/\s+/g, ' ')
 

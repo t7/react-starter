@@ -35,7 +35,7 @@ function ajax (o) {
   const success = o.success
 
   // Populated in loop.
-  var query = []
+  let query = []
 
   // Does an object exist?
   if (typeof params === 'object') {

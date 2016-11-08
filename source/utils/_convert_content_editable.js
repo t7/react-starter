@@ -10,12 +10,12 @@ function convertContentEditable (e) {
   const isDiv = tagName === 'div'
 
   // Get placeholder.
-  var placeholder = el.getAttribute('placeholder')
+  let placeholder = el.getAttribute('placeholder')
   placeholder = placeholder.trim()
   placeholder = placeholder.replace(/\s+/g, ' ')
 
   // Used in conditional.
-  var value
+  let value
 
   if (isSpan) {
     value = el.innerText

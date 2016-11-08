@@ -19,8 +19,8 @@ class ImageFigure extends React.Component {
     // Click event.
     const handleClick = this.props.handleClick
 
-    var width = this.props.width
-    var height = this.props.height
+    let width = this.props.width
+    let height = this.props.height
 
     if (!src && !width) {
       width = '1000'
@@ -38,8 +38,8 @@ class ImageFigure extends React.Component {
     )
 
     // Used in conditional.
-    var figcaptionTop
-    var figcaptionBottom
+    let figcaptionTop
+    let figcaptionBottom
 
     // Determine caption position.
     if (captionTop) {

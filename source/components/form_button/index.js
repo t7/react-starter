@@ -64,7 +64,7 @@ class Button extends React.Component {
     }
 
     // Default class.
-    var className = [
+    let className = [
       't7-form__button'
     ]
 
@@ -128,7 +128,7 @@ class Button extends React.Component {
     className = className.join(' ')
 
     // Presuppose `<button>`.
-    var button = (
+    let button = (
       <button
         aria-controls={ariaControls}
         className={className}

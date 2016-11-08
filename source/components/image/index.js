@@ -29,8 +29,8 @@ class Image extends React.Component {
     const href = this.props.href
     const target = this.props.target
 
-    var height = this.props.height
-    var width = this.props.width
+    let height = this.props.height
+    let width = this.props.width
 
     const numericWidth = parseFloat(width)
     const numericHeight = parseFloat(height)
@@ -41,7 +41,7 @@ class Image extends React.Component {
     const handleClick = this.props.handleClick
 
     // Is there a border?
-    var border = this.props.border
+    let border = this.props.border
 
     if (border) {
       border = {
@@ -50,8 +50,8 @@ class Image extends React.Component {
     }
 
     // Used for placeholders.
-    var text = ''
-    var textPercent = '?text=PLACEHOLDER'
+    let text = ''
+    let textPercent = '?text=PLACEHOLDER'
 
     // Is there alt text?
     if (alt) {
@@ -76,8 +76,8 @@ class Image extends React.Component {
     }
 
     // Used in conditional.
-    var src = this.props.src
-    var img
+    let src = this.props.src
+    let img
 
     // Is there a source?
     if (src) {

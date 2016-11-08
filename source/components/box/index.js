@@ -77,7 +77,7 @@ class Box extends React.Component {
     const mode = this.props.mode
 
     // Used in conditional.
-    var ariaHidden
+    let ariaHidden
 
     // Hidden?
     if (hidden) {
@@ -88,7 +88,7 @@ class Box extends React.Component {
     const handleClick = this.handleClick.bind(this)
 
     // Used in conditional.
-    var className = [
+    let className = [
       't7-box'
     ]
 
@@ -133,7 +133,7 @@ class Box extends React.Component {
     className = className.join(' ')
 
     // Used in conditional.
-    var closeX
+    let closeX
 
     // Close "X" specified?
     if (close) {
@@ -152,7 +152,7 @@ class Box extends React.Component {
     }
 
     // Get child element(s).
-    var children = this.props.children
+    let children = this.props.children
 
     // Ensure at least a `<p>` exists.
     if (typeof children === 'string') {
@@ -162,7 +162,7 @@ class Box extends React.Component {
     }
 
     // Used in conditional.
-    var box = (
+    let box = (
       <div
         aria-hidden={ariaHidden}
         className={className}

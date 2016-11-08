@@ -52,7 +52,7 @@ class Accordion extends React.Component {
 
     const multi = this.props.multi
 
-    var selected = cloneDeep(this.state.selected)
+    let selected = cloneDeep(this.state.selected)
     const isSelected = selected[index]
 
     // If `multi` isn't supported,
@@ -109,7 +109,7 @@ class Accordion extends React.Component {
 
       // Panel label & content.
       const label = panel.props.label
-      var content = panel.props.children
+      let content = panel.props.children
 
       if (typeof content === 'string') {
         content = (

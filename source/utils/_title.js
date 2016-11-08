@@ -8,7 +8,7 @@ function title (props) {
     ''
 
   // Used in conditional.
-  var title = props.route.title
+  let title = props.route.title
 
   // Is there a title?
   if (title) {
