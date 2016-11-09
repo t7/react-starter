@@ -2,7 +2,7 @@
 function regex (x) {
   // Escape the string.
   function esc (str) {
-    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
+    return str.replace(/[-*+?.^$|{}()/[\]\\]/g, '\\$&')
   }
 
   // Used later.
