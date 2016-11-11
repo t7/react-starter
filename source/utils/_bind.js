@@ -14,6 +14,10 @@ function bind (_this) {
     )
   )
 
+  // Bind `setState`.
+  _this.setState =
+  _this.setState.bind(_this)
+
   // Loop through method names.
   methods.forEach(function (method) {
     // Ignore these.
