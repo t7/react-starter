@@ -1,5 +1,5 @@
 /*
-  This method auto-binds `class` methods,
+  This method auto-binds "class" methods,
   so that you don't always have to type:
 
   ```
