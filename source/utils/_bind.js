@@ -5,7 +5,23 @@
   ```
   const foo = this.foo.bind(this)
   ```
+
+  You would call this function from within a
+  React class `constructor` method, like so:
+
+  ```
+  import React from 'react'
+  import bind from './utils'
+
+  class Foo extends React.Component {
+    constructor (props) {
+      super(props)
+      utils.bind(this)
+    }
+  }
+  ```
 */
+
 function bind (_this) {
   // Build an array of methods.
   const methods = (
