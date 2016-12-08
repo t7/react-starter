@@ -48,35 +48,36 @@ class Input extends React.Component {
     }
   }
 
-  // When input loses focus.
+  // Input loses focus.
   handleBlur (e) {
-    const value = utils.trim(e.target.value)
-
-    this.setState({
-      value: value
-    })
-
+    // Props.
     const handleChange = this.props.handleChange
 
-    // Exit, if no callback.
+    // Trim value.
+    const value = utils.trim(e.target.value)
+
+    // Update value.
+    this.setState({value})
+
+    // Fire callback.
     if (typeof handleChange === 'function') {
       handleChange(e, value)
     }
   }
 
-  // When value changes.
+  // Input value change.
   handleChange (e) {
-    let value = e.target.value
-
-    this.setState({
-      value: value
-    })
-
+    // Props.
     const handleChange = this.props.handleChange
 
-    // Exit, if no callback.
+    // Get value.
+    const value = e.target.value
+
+    // Update value.
+    this.setState({value})
+
+    // Fire callback.
     if (typeof handleChange === 'function') {
-      value = utils.trim(value)
       handleChange(e, value)
     }
   }
