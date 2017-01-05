@@ -11,7 +11,7 @@
 
   ```
   import React from 'react'
-  import bind from './utils'
+  import utils from './utils'
 
   class Foo extends React.Component {
     constructor (props) {
