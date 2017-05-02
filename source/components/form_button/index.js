@@ -24,7 +24,7 @@ class Button extends React.Component {
     */
     if (this.props.disabled) {
       // Cancel click.
-      e.stop()
+      utils.stop(e)
     }
 
     const handleClick = this.props.handleClick
